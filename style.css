@@ -1,167 +1,251 @@
+/* --- 1. SETUP & VARS --- */
+:root {
+    --bg-deep: #020204;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    
+    /* Brand Colors */
+    --gold: #F59E0B;
+    --gold-glow: rgba(245, 158, 11, 0.5);
+    
+    --youtube: #ff0000;
+    --whatsapp: #00e676;
+    --google: #4285f4;
+
+    --font-head: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: radial-gradient(circle at top, #0b1220, #020617);
-  color: #e5e7eb;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* REVIEW BANNER */
-.review-banner {
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+/* --- 2. BACKGROUND FX --- */
+.noise-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
 }
 
-.review-track {
-  display: flex;
-  width: max-content;
-  animation: slide 28s linear infinite;
+.ambient-light {
+    position: fixed; top: -30%; right: -10%;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(21, 50, 200, 0.15), transparent 70%);
+    filter: blur(80px); z-index: 0;
 }
 
-.review-track span {
-  padding: 14px 40px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #fbbf24;
-  white-space: nowrap;
+/* --- 3. PREMIUM NAV MARQUEE --- */
+.premium-nav {
+    background: linear-gradient(90deg, #000 0%, #111 50%, #000 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
 }
 
-@keyframes slide {
-  100% { transform: translateX(-50%); }
+.marquee-wrapper {
+    width: 100%; overflow: hidden; white-space: nowrap;
 }
 
-/* HERO */
-.hero {
-  max-width: 1200px;
-  margin: auto;
-  padding: 110px 32px 90px;
+.marquee-content {
+    display: inline-block;
+    animation: scroll 25s linear infinite;
 }
+
+.marquee-content span {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-right: 50px;
+    text-transform: uppercase;
+}
+
+.sep { color: #fff; opacity: 0.3; margin-left: 10px; font-style: normal;}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- 4. HERO SECTION --- */
+.hero-section {
+    position: relative; z-index: 1;
+    padding: 100px 20px 80px;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 80px;
-  align-items: center;
+    display: grid; grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px; align-items: center;
 }
 
+/* Typography */
 .hero-text h1 {
-  font-size: 60px;
-  line-height: 1.05;
+    font-family: var(--font-head);
+    font-size: 64px; font-weight: 800;
+    line-height: 1.1; margin-bottom: 24px;
 }
 
-.hero-text p {
-  font-size: 18px;
-  color: #cbd5f5;
+.text-gradient {
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.hero-text span {
-  color: #fbbf24;
-  font-weight: 600;
+.hero-sub {
+    font-size: 18px; line-height: 1.6;
+    color: var(--text-muted); margin-bottom: 40px;
+    max-width: 550px;
 }
 
-/* CTAs */
-.cta-row {
-  display: flex;
-  gap: 14px;
-  margin-top: 36px;
+.text-white { color: #fff; }
+.gold-highlight { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(245,158,11,0.3); }
+
+/* Buttons */
+.cta-group { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+
+.btn {
+    text-decoration: none; padding: 16px 32px;
+    border-radius: 50px; font-weight: 600; font-size: 15px;
+    transition: all 0.3s ease; display: inline-flex; align-items: center;
 }
 
-.cta {
-  padding: 14px 26px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.25);
+/* Button 1: Gradient */
+.btn-primary {
+    background: linear-gradient(135deg, #FF8C00, #F59E0B);
+    color: #000; box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245,158,11,0.5); }
+
+/* Button 2: Glass */
+.btn-secondary {
+    background: rgba(255,255,255,0.05); color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+/* Button 3: GOLD OUTLINE (Requested) */
+.btn-outline-gold {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 15px 30px; border-radius: 50px;
+    font-weight: 700; text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 8px;
 }
 
-.primary {
-  background: linear-gradient(135deg, #f59e0b, #fb7185);
-  color: #020617;
-  border: none;
+.btn-outline-gold:hover {
+    background: var(--gold); color: #000;
+    box-shadow: 0 0 20px var(--gold-glow);
+}
+.btn-outline-gold .arrow { font-size: 18px; }
+
+/* --- 5. LOGO PORTAL (Updated) --- */
+.hero-visual {
+    display: flex; justify-content: center; position: relative;
 }
 
-.secondary {
-  color: #e5e7eb;
+.logo-portal {
+    position: relative; width: 320px; height: 320px;
+    display: flex; justify-content: center; align-items: center;
 }
 
-/* LOGO */
-.logo-ring {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f59e0b, #fb7185);
-  padding: 10px;
+/* The Rotating Ring */
+.rotating-ring {
+    position: absolute; width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    animation: spin 10s linear infinite;
+    box-shadow: 0 0 30px rgba(245,158,11,0.1);
 }
 
-.logo-ring img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: white;
-  padding: 14px;
+/* Static Glow behind logo */
+.logo-glow {
+    position: absolute; width: 80%; height: 80%;
+    background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    filter: blur(40px); z-index: 1;
 }
 
-/* PORTFOLIO SECTION */
-.portfolio {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 32px 120px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+.logo-portal img {
+    width: 280px; height: 280px; /* Large Size */
+    border-radius: 50%; object-fit: cover;
+    position: relative; z-index: 2;
+    border: 4px solid rgba(20,20,20,0.8);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-.portfolio-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  border-radius: 28px;
-  padding: 42px;
-  display: flex;
-  flex-direction: column;
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- 6. NEON WIDGETS --- */
+.widgets-section { padding: 0 20px 100px; }
+.widgets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+.widget-card {
+    background: #0A0A0C;
+    border: 1px solid #1f1f1f;
+    border-radius: 20px; padding: 35px;
+    position: relative; overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.portfolio-card .icon {
-  font-size: 28px;
-  margin-bottom: 18px;
+/* Highlighting Logic */
+.widget-card.youtube:hover { border-color: var(--youtube); box-shadow: 0 10px 40px rgba(255,0,0,0.15); }
+.widget-card.whatsapp:hover { border-color: var(--whatsapp); box-shadow: 0 10px 40px rgba(0,230,118,0.15); }
+.widget-card.google:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(245,158,11,0.15); }
+
+.widget-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+
+.tag {
+    font-size: 11px; font-weight: 800; letter-spacing: 1px;
+    color: rgba(255,255,255,0.4); text-transform: uppercase;
 }
 
-.portfolio-card h3 {
-  margin: 0 0 12px;
-  font-size: 20px;
-}
+/* Specific Tag Colors on Hover */
+.youtube:hover .tag { color: var(--youtube); }
+.whatsapp:hover .tag { color: var(--whatsapp); }
+.google:hover .tag { color: var(--gold); }
 
-.portfolio-card p {
-  font-size: 15px;
-  color: #9ca3af;
-  line-height: 1.6;
-  flex-grow: 1;
-}
+.icon { font-size: 18px; color: #333; transition: color 0.3s; }
+.youtube:hover .icon { color: var(--youtube); }
+.whatsapp:hover .icon { color: var(--whatsapp); }
+.google:hover .icon { color: var(--gold); }
 
-.portfolio-card a {
-  margin-top: 28px;
-  font-weight: 600;
-  text-decoration: none;
-}
+.widget-card h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 10px; color: #fff; }
+.widget-card p { font-size: 15px; color: var(--text-muted); line-height: 1.5; margin-bottom: 30px; }
 
-/* COLOR ACCENTS */
-.youtube { border-top: 3px solid #ef4444; }
-.whatsapp { border-top: 3px solid #22c55e; }
-.reviews { border-top: 3px solid #fbbf24; }
+.link-btn {
+    text-decoration: none; font-weight: 700; font-size: 14px;
+    color: #fff; transition: padding 0.3s;
+}
+.youtube .link-btn:hover { color: var(--youtube); padding-left: 5px; }
+.whatsapp .link-btn:hover { color: var(--whatsapp); padding-left: 5px; }
+.google .link-btn:hover { color: var(--gold); padding-left: 5px; }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 28px;
-  font-size: 13px;
-  color: #9ca3af;
-}
+footer { text-align: center; color: rgba(255,255,255,0.2); padding: 40px; font-size: 13px; border-top: 1px solid #111; }
+.seo-hidden { display: none; }
 
-/* RESPONSIVE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 900px) {
-  .hero-grid,
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-text h1 {
-    font-size: 42px;
-  }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+    .hero-visual { order: -1; margin-top: 20px; }
+    .cta-group { flex-direction: column; width: 100%; }
+    .btn { width: 100%; justify-content: center; }
+    .widgets-grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 42px; }
+    .logo-portal { width: 260px; height: 260px; }
+    .logo-portal img { width: 220px; height: 220px; }
 }
