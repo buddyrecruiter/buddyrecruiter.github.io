@@ -54,25 +54,53 @@ body {
 
 .marquee-content {
     display: inline-block;
-    animation: scroll 35s linear infinite;
+    animation: scroll 40s linear infinite; /* Slower for readability */
 }
 
+/* Review Item Styling */
 .review-item {
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-body);
     font-weight: 500;
     font-size: 13px;
     color: #fff;
-    margin: 0 10px;
+    margin: 0 15px;
+    background: rgba(255,255,255,0.03);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.g-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    opacity: 0.8;
 }
 
 .stars {
     color: var(--gold);
     font-style: normal;
-    margin-right: 6px;
+    margin-right: 8px;
     letter-spacing: 1px;
 }
 
-.divider { color: rgba(255,255,255,0.2); margin: 0 20px; }
+.author {
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    margin-left: 6px;
+    font-weight: 400;
+}
+
+.divider { 
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 10px;
+    vertical-align: middle;
+}
 
 @keyframes scroll {
     0% { transform: translateX(0); }
