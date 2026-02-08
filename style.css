@@ -40,7 +40,7 @@ body {
     filter: blur(80px); z-index: 0;
 }
 
-/* --- 3. GOOGLE REVIEW NAV (UPDATED) --- */
+/* --- 3. GOOGLE REVIEW NAV --- */
 .review-nav {
     background: #000;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -54,7 +54,7 @@ body {
 
 .marquee-content {
     display: inline-block;
-    animation: scroll 40s linear infinite; /* Slower for readability */
+    animation: scroll 50s linear infinite; /* Smooth speed */
 }
 
 /* Review Item Styling */
@@ -72,35 +72,10 @@ body {
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-.g-icon {
-    width: 14px;
-    height: 14px;
-    margin-right: 8px;
-    opacity: 0.8;
-}
-
-.stars {
-    color: var(--gold);
-    font-style: normal;
-    margin-right: 8px;
-    letter-spacing: 1px;
-}
-
-.author {
-    color: rgba(255,255,255,0.4);
-    font-size: 11px;
-    margin-left: 6px;
-    font-weight: 400;
-}
-
-.divider { 
-    display: inline-block;
-    width: 1px;
-    height: 14px;
-    background: rgba(255,255,255,0.1);
-    margin: 0 10px;
-    vertical-align: middle;
-}
+.g-icon { width: 14px; height: 14px; margin-right: 8px; opacity: 0.8; }
+.stars { color: var(--gold); margin-right: 8px; letter-spacing: 1px; }
+.author { color: rgba(255,255,255,0.4); font-size: 11px; margin-left: 6px; font-weight: 400; }
+.divider { display: inline-block; width: 1px; height: 14px; background: rgba(255,255,255,0.1); margin: 0 10px; vertical-align: middle; }
 
 @keyframes scroll {
     0% { transform: translateX(0); }
@@ -120,7 +95,6 @@ body {
     gap: 40px; align-items: center;
 }
 
-/* Typography */
 .hero-text h1 {
     font-family: var(--font-head);
     font-size: 64px; font-weight: 800;
@@ -133,12 +107,10 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Inspiring Subtext */
 .hero-sub {
     font-size: 19px; line-height: 1.6;
     color: var(--text-muted); margin-bottom: 45px;
-    max-width: 550px;
-    font-weight: 400;
+    max-width: 550px; font-weight: 400;
 }
 
 .gold-highlight { 
@@ -148,84 +120,47 @@ body {
     text-underline-offset: 4px;
 }
 
-/* --- CTA GROUP (Standardized Size) --- */
-.cta-group { 
-    display: flex; 
-    gap: 16px; 
-    align-items: center; 
-    flex-wrap: wrap;
-}
+/* --- CTA GROUP --- */
+.cta-group { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
-/* Base Button Style for Uniformity */
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    height: 56px; /* Fixed Height */
-    padding: 0 32px; /* Fixed Padding */
-    min-width: 200px; /* Minimum Width for uniformity */
-    border-radius: 99px;
-    font-weight: 600;
-    font-size: 15px;
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; height: 56px; padding: 0 32px;
+    min-width: 200px; border-radius: 99px;
+    font-weight: 600; font-size: 15px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     letter-spacing: 0.3px;
 }
 
-/* 1. Primary (Gradient) */
 .btn-primary {
     background: linear-gradient(135deg, #FF8C00, #F59E0B);
-    color: #000; 
-    border: 1px solid transparent;
+    color: #000; border: 1px solid transparent;
     box-shadow: 0 4px 20px rgba(245,158,11,0.2);
 }
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(245,158,11,0.4);
-}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.4); }
 
-/* 2. Secondary (Glass Dark) */
 .btn-secondary {
-    background: rgba(255,255,255,0.06);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.06); color: #fff;
+    border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
 }
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: #fff;
-    transform: translateY(-2px);
-}
+.btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-2px); }
 
-/* 3. Gold Glass (Resume - NO SYMBOL, CREATIVE BORDER) */
 .btn-gold-glass {
-    background: rgba(245, 158, 11, 0.05); /* Very faint gold bg */
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    box-shadow: 0 0 15px rgba(245,158,11,0.05);
+    background: rgba(245, 158, 11, 0.05); color: var(--gold);
+    border: 1px solid var(--gold); box-shadow: 0 0 15px rgba(245,158,11,0.05);
 }
 .btn-gold-glass:hover {
-    background: var(--gold);
-    color: #000;
-    box-shadow: 0 0 30px rgba(245,158,11,0.4); /* Big Glow on Hover */
-    transform: translateY(-2px);
+    background: var(--gold); color: #000;
+    box-shadow: 0 0 30px rgba(245,158,11,0.4); transform: translateY(-2px);
 }
 
 /* --- 5. LOGO PORTAL --- */
-.hero-visual {
-    display: flex; justify-content: center; position: relative;
-}
-
-.logo-portal {
-    position: relative; width: 320px; height: 320px;
-    display: flex; justify-content: center; align-items: center;
-}
+.hero-visual { display: flex; justify-content: center; position: relative; }
+.logo-portal { position: relative; width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; }
 
 .rotating-ring {
-    position: absolute; width: 100%; height: 100%;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top: 2px solid var(--gold);
+    position: absolute; width: 100%; height: 100%; border-radius: 50%;
+    border: 2px solid transparent; border-top: 2px solid var(--gold);
     border-right: 2px solid rgba(255,255,255,0.2);
     animation: spin 10s linear infinite;
     box-shadow: 0 0 30px rgba(245,158,11,0.1);
@@ -238,16 +173,13 @@ body {
 }
 
 .logo-portal img {
-    width: 280px; height: 280px;
-    border-radius: 50%; object-fit: cover;
-    position: relative; z-index: 2;
-    border: 4px solid rgba(20,20,20,0.8);
+    width: 280px; height: 280px; border-radius: 50%; object-fit: cover;
+    position: relative; z-index: 2; border: 4px solid rgba(20,20,20,0.8);
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
-
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* --- 6. NEON WIDGETS --- */
+/* --- 6. NEON WIDGETS (AUTO-ANIMATING) --- */
 .widgets-section { padding: 0 20px 100px; }
 .widgets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
@@ -259,30 +191,41 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.widget-card:hover { transform: translateY(-5px); }
-.widget-card.youtube:hover { border-color: var(--youtube); box-shadow: 0 10px 40px rgba(255,0,0,0.15); }
-.widget-card.whatsapp:hover { border-color: var(--whatsapp); box-shadow: 0 10px 40px rgba(0,230,118,0.15); }
-.widget-card.google:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(245,158,11,0.15); }
+/* NEW AUTO-PULSE ANIMATIONS (5s Loop) */
+.youtube { animation: pulse-red 5s infinite; }
+.whatsapp { animation: pulse-green 5s infinite; }
+.google { animation: pulse-gold 5s infinite; }
 
-.widget-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+/* Keep hover effect on top for immediate interaction */
+.widget-card:hover { animation: none; transform: translateY(-5px); border-color: rgba(255,255,255,0.3) !important; }
 
-.tag {
-    font-size: 11px; font-weight: 800; letter-spacing: 1px;
-    color: rgba(255,255,255,0.4); text-transform: uppercase;
+/* Keyframes for Automatic Highlights */
+@keyframes pulse-red {
+    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
+    50% { border-color: var(--youtube); box-shadow: 0 0 20px rgba(255,0,0,0.2); }
+}
+@keyframes pulse-green {
+    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
+    50% { border-color: var(--whatsapp); box-shadow: 0 0 20px rgba(0,230,118,0.2); }
+}
+@keyframes pulse-gold {
+    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
+    50% { border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.2); }
 }
 
+.widget-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.tag { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
 .icon { font-size: 18px; color: #333; transition: color 0.3s; }
-.youtube:hover .icon { color: var(--youtube); }
-.whatsapp:hover .icon { color: var(--whatsapp); }
-.google:hover .icon { color: var(--gold); }
+
+/* Icon Colors (Always visible on pulse/hover) */
+.youtube .icon, .youtube:hover .icon { color: var(--youtube); }
+.whatsapp .icon, .whatsapp:hover .icon { color: var(--whatsapp); }
+.google .icon, .google:hover .icon { color: var(--gold); }
 
 .widget-card h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 10px; color: #fff; }
 .widget-card p { font-size: 15px; color: var(--text-muted); line-height: 1.5; margin-bottom: 30px; }
 
-.link-btn {
-    text-decoration: none; font-weight: 700; font-size: 14px;
-    color: #fff; transition: padding 0.3s;
-}
+.link-btn { text-decoration: none; font-weight: 700; font-size: 14px; color: #fff; transition: padding 0.3s; }
 .youtube .link-btn:hover { color: var(--youtube); padding-left: 5px; }
 .whatsapp .link-btn:hover { color: var(--whatsapp); padding-left: 5px; }
 .google .link-btn:hover { color: var(--gold); padding-left: 5px; }
