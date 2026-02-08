@@ -6,7 +6,7 @@
     
     /* Brand Colors */
     --gold: #F59E0B;
-    --gold-glow: rgba(245, 158, 11, 0.5);
+    --gold-glow: rgba(245, 158, 11, 0.4);
     
     --youtube: #ff0000;
     --whatsapp: #00e676;
@@ -40,36 +40,39 @@ body {
     filter: blur(80px); z-index: 0;
 }
 
-/* --- 3. PREMIUM NAV MARQUEE --- */
-.premium-nav {
-    background: linear-gradient(90deg, #000 0%, #111 50%, #000 100%);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 0;
+/* --- 3. GOOGLE REVIEW NAV (UPDATED) --- */
+.review-nav {
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 12px 0;
     overflow: hidden;
     position: relative;
     z-index: 10;
 }
 
-.marquee-wrapper {
-    width: 100%; overflow: hidden; white-space: nowrap;
-}
+.marquee-wrapper { width: 100%; overflow: hidden; white-space: nowrap; }
 
 .marquee-content {
     display: inline-block;
-    animation: scroll 25s linear infinite;
+    animation: scroll 35s linear infinite;
 }
 
-.marquee-content span {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 14px;
-    letter-spacing: 1px;
+.review-item {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 13px;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.stars {
     color: var(--gold);
-    margin-right: 50px;
-    text-transform: uppercase;
+    font-style: normal;
+    margin-right: 6px;
+    letter-spacing: 1px;
 }
 
-.sep { color: #fff; opacity: 0.3; margin-left: 10px; font-style: normal;}
+.divider { color: rgba(255,255,255,0.2); margin: 0 20px; }
 
 @keyframes scroll {
     0% { transform: translateX(0); }
@@ -102,56 +105,85 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+/* Inspiring Subtext */
 .hero-sub {
-    font-size: 18px; line-height: 1.6;
-    color: var(--text-muted); margin-bottom: 40px;
+    font-size: 19px; line-height: 1.6;
+    color: var(--text-muted); margin-bottom: 45px;
     max-width: 550px;
+    font-weight: 400;
 }
 
-.text-white { color: #fff; }
-.gold-highlight { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(245,158,11,0.3); }
+.gold-highlight { 
+    color: var(--text-main); 
+    text-decoration: underline; 
+    text-decoration-color: var(--gold);
+    text-underline-offset: 4px;
+}
 
-/* Buttons */
-.cta-group { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+/* --- CTA GROUP (Standardized Size) --- */
+.cta-group { 
+    display: flex; 
+    gap: 16px; 
+    align-items: center; 
+    flex-wrap: wrap;
+}
 
+/* Base Button Style for Uniformity */
 .btn {
-    text-decoration: none; padding: 16px 32px;
-    border-radius: 50px; font-weight: 600; font-size: 15px;
-    transition: all 0.3s ease; display: inline-flex; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    height: 56px; /* Fixed Height */
+    padding: 0 32px; /* Fixed Padding */
+    min-width: 200px; /* Minimum Width for uniformity */
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    letter-spacing: 0.3px;
 }
 
-/* Button 1: Gradient */
+/* 1. Primary (Gradient) */
 .btn-primary {
     background: linear-gradient(135deg, #FF8C00, #F59E0B);
-    color: #000; box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+    color: #000; 
+    border: 1px solid transparent;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.2);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245,158,11,0.5); }
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(245,158,11,0.4);
+}
 
-/* Button 2: Glass */
+/* 2. Secondary (Glass Dark) */
 .btn-secondary {
-    background: rgba(255,255,255,0.05); color: #fff;
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
 
-/* Button 3: GOLD OUTLINE (Requested) */
-.btn-outline-gold {
-    background: transparent;
+/* 3. Gold Glass (Resume - NO SYMBOL, CREATIVE BORDER) */
+.btn-gold-glass {
+    background: rgba(245, 158, 11, 0.05); /* Very faint gold bg */
     color: var(--gold);
-    border: 2px solid var(--gold);
-    padding: 15px 30px; border-radius: 50px;
-    font-weight: 700; text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 15px rgba(245,158,11,0.05);
+}
+.btn-gold-glass:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 30px rgba(245,158,11,0.4); /* Big Glow on Hover */
+    transform: translateY(-2px);
 }
 
-.btn-outline-gold:hover {
-    background: var(--gold); color: #000;
-    box-shadow: 0 0 20px var(--gold-glow);
-}
-.btn-outline-gold .arrow { font-size: 18px; }
-
-/* --- 5. LOGO PORTAL (Updated) --- */
+/* --- 5. LOGO PORTAL --- */
 .hero-visual {
     display: flex; justify-content: center; position: relative;
 }
@@ -161,7 +193,6 @@ body {
     display: flex; justify-content: center; align-items: center;
 }
 
-/* The Rotating Ring */
 .rotating-ring {
     position: absolute; width: 100%; height: 100%;
     border-radius: 50%;
@@ -172,7 +203,6 @@ body {
     box-shadow: 0 0 30px rgba(245,158,11,0.1);
 }
 
-/* Static Glow behind logo */
 .logo-glow {
     position: absolute; width: 80%; height: 80%;
     background: radial-gradient(circle, var(--gold-glow), transparent 70%);
@@ -180,7 +210,7 @@ body {
 }
 
 .logo-portal img {
-    width: 280px; height: 280px; /* Large Size */
+    width: 280px; height: 280px;
     border-radius: 50%; object-fit: cover;
     position: relative; z-index: 2;
     border: 4px solid rgba(20,20,20,0.8);
@@ -201,7 +231,7 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Highlighting Logic */
+.widget-card:hover { transform: translateY(-5px); }
 .widget-card.youtube:hover { border-color: var(--youtube); box-shadow: 0 10px 40px rgba(255,0,0,0.15); }
 .widget-card.whatsapp:hover { border-color: var(--whatsapp); box-shadow: 0 10px 40px rgba(0,230,118,0.15); }
 .widget-card.google:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(245,158,11,0.15); }
@@ -212,11 +242,6 @@ body {
     font-size: 11px; font-weight: 800; letter-spacing: 1px;
     color: rgba(255,255,255,0.4); text-transform: uppercase;
 }
-
-/* Specific Tag Colors on Hover */
-.youtube:hover .tag { color: var(--youtube); }
-.whatsapp:hover .tag { color: var(--whatsapp); }
-.google:hover .tag { color: var(--gold); }
 
 .icon { font-size: 18px; color: #333; transition: color 0.3s; }
 .youtube:hover .icon { color: var(--youtube); }
@@ -236,16 +261,13 @@ body {
 
 /* FOOTER */
 footer { text-align: center; color: rgba(255,255,255,0.2); padding: 40px; font-size: 13px; border-top: 1px solid #111; }
-.seo-hidden { display: none; }
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
     .hero-visual { order: -1; margin-top: 20px; }
     .cta-group { flex-direction: column; width: 100%; }
-    .btn { width: 100%; justify-content: center; }
+    .btn { width: 100%; }
     .widgets-grid { grid-template-columns: 1fr; }
     .hero-text h1 { font-size: 42px; }
-    .logo-portal { width: 260px; height: 260px; }
-    .logo-portal img { width: 220px; height: 220px; }
 }
