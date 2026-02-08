@@ -5,26 +5,27 @@ body {
   color: #e5e7eb;
 }
 
-/* BANNER */
-.top-banner {
+/* REVIEW BANNER */
+.review-banner {
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.banner-track {
+.review-track {
   display: flex;
   width: max-content;
-  animation: scroll 22s linear infinite;
+  animation: slide 28s linear infinite;
 }
 
-.banner-track span {
-  padding: 14px 32px;
-  font-size: 13px;
-  font-weight: 600;
+.review-track span {
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 500;
   color: #fbbf24;
+  white-space: nowrap;
 }
 
-@keyframes scroll {
+@keyframes slide {
   100% { transform: translateX(-50%); }
 }
 
@@ -54,13 +55,14 @@ body {
 
 .hero-text span {
   color: #fbbf24;
+  font-weight: 600;
 }
 
 /* CTAs */
 .cta-row {
-  margin-top: 36px;
   display: flex;
   gap: 14px;
+  margin-top: 36px;
 }
 
 .cta {
@@ -98,50 +100,68 @@ body {
   padding: 14px;
 }
 
-/* CARDS */
-.actions {
+/* PORTFOLIO SECTION */
+.portfolio {
   max-width: 1200px;
   margin: auto;
-  padding: 0 32px 110px;
+  padding: 0 32px 120px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 36px;
 }
 
-.card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 26px;
-  padding: 38px;
-}
-
-.card-header {
+.portfolio-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 28px;
+  padding: 42px;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
 }
 
-.card-header svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
+.portfolio-card .icon {
+  font-size: 28px;
+  margin-bottom: 18px;
 }
 
-.card span {
-  font-size: 11px;
-  letter-spacing: 1px;
+.portfolio-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
 }
 
-.card a {
-  margin-top: 18px;
-  display: inline-block;
+.portfolio-card p {
+  font-size: 15px;
+  color: #9ca3af;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.portfolio-card a {
+  margin-top: 28px;
   font-weight: 600;
+  text-decoration: none;
 }
+
+/* COLOR ACCENTS */
+.youtube { border-top: 3px solid #ef4444; }
+.whatsapp { border-top: 3px solid #22c55e; }
+.reviews { border-top: 3px solid #fbbf24; }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 26px;
+  padding: 28px;
   font-size: 13px;
   color: #9ca3af;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-grid,
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
 }
