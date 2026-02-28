@@ -96,11 +96,9 @@
                     <a href="https://whatsapp.com/channel/0029VaKklsd4CrflDisgI90E" target="_blank" class="btn btn-primary">
                         Career Updates
                     </a>
-                    
                     <a href="https://www.linkedin.com/in/jigzsaner/" target="_blank" class="btn btn-secondary">
                         Connect on LinkedIn
                     </a>
-                    
                     <a href="mailto:jigsaner@amazon.com" class="btn btn-gold-glass">
                         Share Your Resume
                     </a>
@@ -115,6 +113,23 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><span class="live-dot"></span> Live Opportunities</h2>
+                <p>Top engineering roles actively interviewing across India.</p>
+            </div>
+            
+            <div class="jobs-grid" id="jobs-container"></div>
+
+            <div class="jobs-footer">
+                <a href="https://www.amazon.jobs/en/search?base_query=&loc_query=India&country=IND" target="_blank" class="btn btn-outline-gold">
+                    View All Live Amazon Roles ↗
+                </a>
+            </div>
         </div>
     </section>
 
@@ -167,5 +182,46 @@
         <p>© 2026 Buddy Recruiter · Jignesh Saner</p>
     </footer>
 
+    <script>
+        // EDIT THIS ARRAY TO UPDATE YOUR JOB BOARD
+        const activeJobs = [
+            {
+                title: "Software Development Engineer II",
+                team: "Amazon Web Services (AWS)",
+                location: "Bengaluru, India",
+                link: "https://www.amazon.jobs/en/search?base_query=&loc_query=India&country=IND"
+            },
+            {
+                title: "Frontend Engineer - React/Next.js",
+                team: "Amazon Prime Video",
+                location: "Hyderabad, India",
+                link: "https://www.amazon.jobs/en/search?base_query=&loc_query=India&country=IND"
+            },
+            {
+                title: "Backend SDE III (Distributed Systems)",
+                team: "Amazon e-Commerce",
+                location: "Gurugram, India",
+                link: "https://www.amazon.jobs/en/search?base_query=&loc_query=India&country=IND"
+            }
+        ];
+
+        // Renders the jobs to the HTML
+        const container = document.getElementById('jobs-container');
+        activeJobs.forEach(job => {
+            const card = document.createElement('div');
+            card.className = 'job-card';
+            card.innerHTML = `
+                <div class="job-info">
+                    <h3>${job.title}</h3>
+                    <div class="job-meta">
+                        <span class="team">🏢 ${job.team}</span>
+                        <span class="loc">📍 ${job.location}</span>
+                    </div>
+                </div>
+                <a href="${job.link}" target="_blank" class="job-apply">Apply &rarr;</a>
+            `;
+            container.appendChild(card);
+        });
+    </script>
 </body>
 </html>
