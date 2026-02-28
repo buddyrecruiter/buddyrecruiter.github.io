@@ -54,10 +54,9 @@ body {
 
 .marquee-content {
     display: inline-block;
-    animation: scroll 50s linear infinite; /* Smooth speed */
+    animation: scroll 50s linear infinite; 
 }
 
-/* Review Item Styling */
 .review-item {
     display: inline-flex;
     align-items: center;
@@ -154,6 +153,14 @@ body {
     box-shadow: 0 0 30px rgba(245,158,11,0.4); transform: translateY(-2px);
 }
 
+.btn-outline-gold {
+    background: transparent; color: var(--gold);
+    border: 1px solid var(--gold);
+}
+.btn-outline-gold:hover {
+    background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold-glow);
+}
+
 /* --- 5. LOGO PORTAL --- */
 .hero-visual { display: flex; justify-content: center; position: relative; }
 .logo-portal { position: relative; width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; }
@@ -179,45 +186,83 @@ body {
 }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* --- 6. NEON WIDGETS (AUTO-ANIMATING) --- */
+/* --- 6. LIVE JOBS SECTION --- */
+.jobs-section {
+    padding: 20px 20px 80px;
+    position: relative; z-index: 1;
+}
+
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-family: var(--font-head); font-size: 32px; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 12px;}
+.section-header p { color: var(--text-muted); font-size: 16px;}
+
+/* Pulsing Live Dot */
+.live-dot {
+    display: inline-block; width: 12px; height: 12px;
+    background-color: #00e676; border-radius: 50%;
+    box-shadow: 0 0 10px #00e676;
+    animation: pulse-live 2s infinite;
+}
+@keyframes pulse-live {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 230, 118, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+}
+
+.jobs-grid {
+    display: flex; flex-direction: column; gap: 16px;
+    max-width: 900px; margin: 0 auto 40px;
+}
+
+.job-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 24px 30px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all 0.3s ease;
+}
+.job-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.2);
+    transform: translateX(5px);
+}
+
+.job-info h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 8px; color: #fff; }
+.job-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-muted); }
+
+.job-apply {
+    background: #fff; color: #000; padding: 10px 24px;
+    border-radius: 50px; text-decoration: none; font-weight: 700;
+    font-size: 14px; transition: all 0.2s;
+}
+.job-apply:hover { background: var(--gold); box-shadow: 0 0 15px rgba(245,158,11,0.3); }
+
+.jobs-footer { display: flex; justify-content: center; }
+
+/* --- 7. NEON WIDGETS --- */
 .widgets-section { padding: 0 20px 100px; }
 .widgets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
 .widget-card {
-    background: #0A0A0C;
-    border: 1px solid #1f1f1f;
-    border-radius: 20px; padding: 35px;
-    position: relative; overflow: hidden;
+    background: #0A0A0C; border: 1px solid #1f1f1f;
+    border-radius: 20px; padding: 35px; position: relative;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* NEW AUTO-PULSE ANIMATIONS (5s Loop) */
 .youtube { animation: pulse-red 5s infinite; }
 .whatsapp { animation: pulse-green 5s infinite; }
 .google { animation: pulse-gold 5s infinite; }
 
-/* Keep hover effect on top for immediate interaction */
 .widget-card:hover { animation: none; transform: translateY(-5px); border-color: rgba(255,255,255,0.3) !important; }
 
-/* Keyframes for Automatic Highlights */
-@keyframes pulse-red {
-    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
-    50% { border-color: var(--youtube); box-shadow: 0 0 20px rgba(255,0,0,0.2); }
-}
-@keyframes pulse-green {
-    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
-    50% { border-color: var(--whatsapp); box-shadow: 0 0 20px rgba(0,230,118,0.2); }
-}
-@keyframes pulse-gold {
-    0%, 100% { border-color: #1f1f1f; box-shadow: none; }
-    50% { border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.2); }
-}
+@keyframes pulse-red { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--youtube); box-shadow: 0 0 20px rgba(255,0,0,0.2); } }
+@keyframes pulse-green { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--whatsapp); box-shadow: 0 0 20px rgba(0,230,118,0.2); } }
+@keyframes pulse-gold { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.2); } }
 
 .widget-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
 .tag { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
 .icon { font-size: 18px; color: #333; transition: color 0.3s; }
 
-/* Icon Colors (Always visible on pulse/hover) */
 .youtube .icon, .youtube:hover .icon { color: var(--youtube); }
 .whatsapp .icon, .whatsapp:hover .icon { color: var(--whatsapp); }
 .google .icon, .google:hover .icon { color: var(--gold); }
@@ -239,6 +284,8 @@ footer { text-align: center; color: rgba(255,255,255,0.2); padding: 40px; font-s
     .hero-visual { order: -1; margin-top: 20px; }
     .cta-group { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
+    .job-card { flex-direction: column; text-align: center; gap: 20px; }
+    .job-meta { flex-direction: column; gap: 10px; }
     .widgets-grid { grid-template-columns: 1fr; }
     .hero-text h1 { font-size: 42px; }
 }
