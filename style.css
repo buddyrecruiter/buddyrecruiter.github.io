@@ -1,291 +1,151 @@
-/* --- 1. SETUP & VARS --- */
+/* --- DESIGN SYSTEM --- */
 :root {
-    --bg-deep: #020204;
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    
-    /* Brand Colors */
-    --gold: #F59E0B;
-    --gold-glow: rgba(245, 158, 11, 0.4);
-    
-    --youtube: #ff0000;
-    --whatsapp: #00e676;
-    --google: #4285f4;
-
-    --font-head: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --bg-base: #000000;
+    --bg-surface: #0a0a0a;
+    --border-color: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #fbbf24;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background-color: var(--bg-deep);
-    color: var(--text-main);
-    font-family: var(--font-body);
-    overflow-x: hidden;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* --- 2. BACKGROUND FX --- */
-.noise-bg {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0;
+/* --- AMBIENCE --- */
+.bg-noise {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+.bg-mesh {
+    position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+    width: 100vw; height: 100vh; z-index: -1;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
 }
 
-.ambient-light {
-    position: fixed; top: -30%; right: -10%;
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(21, 50, 200, 0.15), transparent 70%);
-    filter: blur(80px); z-index: 0;
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* --- 1. TICKER (Refined & Minimal) --- */
+.ticker-wrap {
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    overflow: hidden; padding: 10px 0;
+}
+.ticker-move { display: inline-flex; animation: ticker 40s linear infinite; }
+.ticker-item { font-size: 12px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; letter-spacing: 0.5px; }
+.ticker-divider { width: 4px; height: 4px; background: #333; border-radius: 50%; margin: 0 24px; align-self: center; }
+@keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+/* --- 2. HERO --- */
+.hero { padding: 120px 0 80px; }
+.hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+
+.hero-title {
+    font-size: 64px; font-weight: 600; letter-spacing: -0.04em;
+    line-height: 1.05; margin-bottom: 24px;
+}
+.text-glow { color: var(--text-secondary); }
+
+.hero-desc {
+    font-size: 18px; color: var(--text-secondary);
+    max-width: 500px; margin-bottom: 48px;
+    font-weight: 400; letter-spacing: -0.01em;
 }
 
-/* --- 3. GOOGLE REVIEW NAV --- */
-.review-nav {
-    background: #000;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 12px 0;
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
+/* Apple-style Buttons */
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+    display: inline-flex; justify-content: center; align-items: center;
+    height: 48px; padding: 0 28px; border-radius: 8px; /* Sharper, modern corners */
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: all 0.2s ease;
 }
 
-.marquee-wrapper { width: 100%; overflow: hidden; white-space: nowrap; }
+.btn-primary { background: var(--text-primary); color: var(--bg-base); }
+.btn-primary:hover { background: #e0e0e0; transform: scale(0.98); }
 
-.marquee-content {
-    display: inline-block;
-    animation: scroll 50s linear infinite; 
-}
+.btn-secondary { background: var(--bg-surface); color: var(--text-primary); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: #141414; border-color: #333; }
 
-.review-item {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 13px;
-    color: #fff;
-    margin: 0 15px;
-    background: rgba(255,255,255,0.03);
-    padding: 6px 12px;
-    border-radius: 6px;
+.btn-ghost { background: transparent; color: var(--text-secondary); }
+.btn-ghost:hover { color: var(--text-primary); }
+
+/* Minimal Avatar */
+.avatar-glass {
+    width: 240px; height: 240px; border-radius: 50%;
+    padding: 8px; background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.05);
 }
+.avatar-glass img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; filter: grayscale(20%); transition: filter 0.3s; }
+.avatar-glass img:hover { filter: grayscale(0%); }
 
-.g-icon { width: 14px; height: 14px; margin-right: 8px; opacity: 0.8; }
-.stars { color: var(--gold); margin-right: 8px; letter-spacing: 1px; }
-.author { color: rgba(255,255,255,0.4); font-size: 11px; margin-left: 6px; font-weight: 400; }
-.divider { display: inline-block; width: 1px; height: 14px; background: rgba(255,255,255,0.1); margin: 0 10px; vertical-align: middle; }
+/* --- 3. LIVE JOBS (List View) --- */
+.jobs-section { padding: 40px 0 80px; }
+.section-title { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
+.section-title h2 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); }
+.live-indicator { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* --- 4. HERO SECTION --- */
-.hero-section {
-    position: relative; z-index: 1;
-    padding: 100px 20px 80px;
-}
-
-.container { max-width: 1200px; margin: 0 auto; }
-
-.hero-grid {
-    display: grid; grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px; align-items: center;
-}
-
-.hero-text h1 {
-    font-family: var(--font-head);
-    font-size: 64px; font-weight: 800;
-    line-height: 1.1; margin-bottom: 24px;
-}
-
-.text-gradient {
-    background: linear-gradient(to right, #ffffff, #94a3b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-sub {
-    font-size: 19px; line-height: 1.6;
-    color: var(--text-muted); margin-bottom: 45px;
-    max-width: 550px; font-weight: 400;
-}
-
-.gold-highlight { 
-    color: var(--text-main); 
-    text-decoration: underline; 
-    text-decoration-color: var(--gold);
-    text-underline-offset: 4px;
-}
-
-/* --- CTA GROUP --- */
-.cta-group { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-
-.btn {
-    display: flex; justify-content: center; align-items: center;
-    text-decoration: none; height: 56px; padding: 0 32px;
-    min-width: 200px; border-radius: 99px;
-    font-weight: 600; font-size: 15px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    letter-spacing: 0.3px;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #FF8C00, #F59E0B);
-    color: #000; border: 1px solid transparent;
-    box-shadow: 0 4px 20px rgba(245,158,11,0.2);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.4); }
-
-.btn-secondary {
-    background: rgba(255,255,255,0.06); color: #fff;
-    border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-}
-.btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-2px); }
-
-.btn-gold-glass {
-    background: rgba(245, 158, 11, 0.05); color: var(--gold);
-    border: 1px solid var(--gold); box-shadow: 0 0 15px rgba(245,158,11,0.05);
-}
-.btn-gold-glass:hover {
-    background: var(--gold); color: #000;
-    box-shadow: 0 0 30px rgba(245,158,11,0.4); transform: translateY(-2px);
-}
-
-.btn-outline-gold {
-    background: transparent; color: var(--gold);
-    border: 1px solid var(--gold);
-}
-.btn-outline-gold:hover {
-    background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold-glow);
-}
-
-/* --- 5. LOGO PORTAL --- */
-.hero-visual { display: flex; justify-content: center; position: relative; }
-.logo-portal { position: relative; width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; }
-
-.rotating-ring {
-    position: absolute; width: 100%; height: 100%; border-radius: 50%;
-    border: 2px solid transparent; border-top: 2px solid var(--gold);
-    border-right: 2px solid rgba(255,255,255,0.2);
-    animation: spin 10s linear infinite;
-    box-shadow: 0 0 30px rgba(245,158,11,0.1);
-}
-
-.logo-glow {
-    position: absolute; width: 80%; height: 80%;
-    background: radial-gradient(circle, var(--gold-glow), transparent 70%);
-    filter: blur(40px); z-index: 1;
-}
-
-.logo-portal img {
-    width: 280px; height: 280px; border-radius: 50%; object-fit: cover;
-    position: relative; z-index: 2; border: 4px solid rgba(20,20,20,0.8);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-}
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-/* --- 6. LIVE JOBS SECTION --- */
-.jobs-section {
-    padding: 20px 20px 80px;
-    position: relative; z-index: 1;
-}
-
-.section-header { text-align: center; margin-bottom: 40px; }
-.section-header h2 { font-family: var(--font-head); font-size: 32px; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 12px;}
-.section-header p { color: var(--text-muted); font-size: 16px;}
-
-/* Pulsing Live Dot */
-.live-dot {
-    display: inline-block; width: 12px; height: 12px;
-    background-color: #00e676; border-radius: 50%;
-    box-shadow: 0 0 10px #00e676;
-    animation: pulse-live 2s infinite;
-}
-@keyframes pulse-live {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 230, 118, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
-}
-
-.jobs-grid {
-    display: flex; flex-direction: column; gap: 16px;
-    max-width: 900px; margin: 0 auto 40px;
-}
-
-.job-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px; padding: 24px 30px;
+.jobs-list { display: flex; flex-direction: column; }
+.job-row {
     display: flex; justify-content: space-between; align-items: center;
-    transition: all 0.3s ease;
+    padding: 24px 16px; border-bottom: 1px solid var(--border-color);
+    text-decoration: none; transition: background 0.2s;
+    border-radius: 8px;
 }
-.job-card:hover {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.2);
-    transform: translateX(5px);
+.job-row:hover { background: var(--bg-surface); }
+
+.job-data h4 { font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+.job-data span { font-size: 14px; color: var(--text-secondary); }
+.job-arrow { color: var(--text-secondary); font-size: 18px; transition: transform 0.2s, color 0.2s; }
+.job-row:hover .job-arrow { transform: translate(4px, -4px); color: var(--text-primary); }
+
+.jobs-action { margin-top: 24px; text-align: right; }
+.link-arrow { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.link-arrow:hover { color: var(--text-primary); }
+
+/* --- 4. BENTO WIDGETS --- */
+.bento-section { padding: 0 0 100px; }
+.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.bento-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px; padding: 32px;
+    text-decoration: none; transition: all 0.2s ease;
+    display: flex; flex-direction: column;
 }
+.bento-card:hover { border-color: #333; background: #0f0f0f; transform: translateY(-2px); }
 
-.job-info h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 8px; color: #fff; }
-.job-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-muted); }
+.bento-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.bento-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+.bento-icon { width: 20px; height: 20px; color: var(--text-secondary); transition: color 0.2s; }
 
-.job-apply {
-    background: #fff; color: #000; padding: 10px 24px;
-    border-radius: 50px; text-decoration: none; font-weight: 700;
-    font-size: 14px; transition: all 0.2s;
-}
-.job-apply:hover { background: var(--gold); box-shadow: 0 0 15px rgba(245,158,11,0.3); }
+/* Subtle accent on hover */
+.bento-card:hover .bento-icon { color: var(--text-primary); }
 
-.jobs-footer { display: flex; justify-content: center; }
+.bento-card h3 { font-size: 18px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px; }
+.bento-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 
-/* --- 7. NEON WIDGETS --- */
-.widgets-section { padding: 0 20px 100px; }
-.widgets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+/* --- FOOTER --- */
+footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-color); color: #555; font-size: 12px; }
 
-.widget-card {
-    background: #0A0A0C; border: 1px solid #1f1f1f;
-    border-radius: 20px; padding: 35px; position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.youtube { animation: pulse-red 5s infinite; }
-.whatsapp { animation: pulse-green 5s infinite; }
-.google { animation: pulse-gold 5s infinite; }
-
-.widget-card:hover { animation: none; transform: translateY(-5px); border-color: rgba(255,255,255,0.3) !important; }
-
-@keyframes pulse-red { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--youtube); box-shadow: 0 0 20px rgba(255,0,0,0.2); } }
-@keyframes pulse-green { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--whatsapp); box-shadow: 0 0 20px rgba(0,230,118,0.2); } }
-@keyframes pulse-gold { 0%, 100% { border-color: #1f1f1f; box-shadow: none; } 50% { border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.2); } }
-
-.widget-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
-.tag { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
-.icon { font-size: 18px; color: #333; transition: color 0.3s; }
-
-.youtube .icon, .youtube:hover .icon { color: var(--youtube); }
-.whatsapp .icon, .whatsapp:hover .icon { color: var(--whatsapp); }
-.google .icon, .google:hover .icon { color: var(--gold); }
-
-.widget-card h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 10px; color: #fff; }
-.widget-card p { font-size: 15px; color: var(--text-muted); line-height: 1.5; margin-bottom: 30px; }
-
-.link-btn { text-decoration: none; font-weight: 700; font-size: 14px; color: #fff; transition: padding 0.3s; }
-.youtube .link-btn:hover { color: var(--youtube); padding-left: 5px; }
-.whatsapp .link-btn:hover { color: var(--whatsapp); padding-left: 5px; }
-.google .link-btn:hover { color: var(--gold); padding-left: 5px; }
-
-/* FOOTER */
-footer { text-align: center; color: rgba(255,255,255,0.2); padding: 40px; font-size: 13px; border-top: 1px solid #111; }
-
-/* MOBILE RESPONSIVE */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
-    .hero-visual { order: -1; margin-top: 20px; }
-    .cta-group { flex-direction: column; width: 100%; }
+    .hero { padding: 60px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: left; }
+    .hero-visual { grid-row: 1; } /* Logo on top for mobile */
+    .hero-title { font-size: 48px; }
+    .hero-ctas { flex-direction: column; }
     .btn { width: 100%; }
-    .job-card { flex-direction: column; text-align: center; gap: 20px; }
-    .job-meta { flex-direction: column; gap: 10px; }
-    .widgets-grid { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 42px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .job-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .job-arrow { display: none; }
 }
