@@ -1,6 +1,6 @@
 /* --- 1. FUTURISTIC COLOR PALETTE --- */
 :root {
-    --bg-deep: #060913; /* Very dark midnight blue */
+    --bg-deep: #060913; 
     --glass-bg: rgba(16, 23, 42, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
     
@@ -62,8 +62,8 @@ body {
 
 @keyframes scroll { 100% { transform: translateX(-50%); } }
 
-/* --- 4. HERO PANEL (Highly Structured) --- */
-.hero-section { padding: 60px 0; }
+/* --- 4. HERO PANEL --- */
+.hero-section { padding: 60px 0 20px; }
 .hero-glass-panel {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -89,13 +89,10 @@ body {
 }
 .highlight-text { color: #fff; font-weight: 600; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
-/* --- EQUAL SIZED BUTTONS --- */
-.button-grid {
-    display: flex; gap: 16px; flex-wrap: wrap;
-}
+/* --- HERO BUTTONS --- */
+.button-grid { display: flex; gap: 16px; flex-wrap: wrap; }
 .cyber-btn {
-    width: 220px; /* EXACTLY THE SAME SIZE */
-    height: 54px; /* EXACTLY THE SAME SIZE */
+    width: 220px; height: 54px; 
     display: flex; justify-content: center; align-items: center;
     border-radius: 12px; font-family: var(--font-head);
     font-size: 15px; font-weight: 700; text-decoration: none;
@@ -103,62 +100,119 @@ body {
     text-align: center;
 }
 
-/* Btn 1: Solid Gold/Orange */
-.btn-solid {
-    background: linear-gradient(135deg, #F59E0B, #EA580C);
-    color: #000; box-shadow: 0 0 20px rgba(234, 88, 12, 0.3);
-}
+.btn-solid { background: linear-gradient(135deg, #F59E0B, #EA580C); color: #000; box-shadow: 0 0 20px rgba(234, 88, 12, 0.3); }
 .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(234, 88, 12, 0.6); }
 
-/* Btn 2: Dark Glass */
-.btn-glass {
-    background: rgba(255,255,255,0.05); color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
-}
+.btn-glass { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 .btn-glass:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-/* Btn 3: Animated Glowing Border (No symbol, extremely creative) */
 .btn-animated-border {
     position: relative; background: #000; color: var(--gold);
-    padding: 2px; /* Space for the animated border */
-    overflow: hidden; z-index: 1;
+    padding: 2px; overflow: hidden; z-index: 1;
 }
 .btn-animated-border::before {
     content: ''; position: absolute; width: 200%; height: 200%;
     background: conic-gradient(transparent, transparent, transparent, var(--gold));
-    top: -50%; left: -50%; z-index: -1;
-    animation: rotate-border 4s linear infinite;
+    top: -50%; left: -50%; z-index: -1; animation: rotate-border 4s linear infinite;
 }
 .btn-animated-border .btn-inner {
     display: flex; justify-content: center; align-items: center;
-    width: 100%; height: 100%; background: #0B0F19; /* Inner dark background */
-    border-radius: 10px;
+    width: 100%; height: 100%; background: #0B0F19; border-radius: 10px;
 }
 .btn-animated-border:hover .btn-inner { background: rgba(251, 191, 36, 0.1); color: #fff; }
 @keyframes rotate-border { 100% { transform: rotate(360deg); } }
 
-/* --- FUTURISTIC AVATAR --- */
-.hero-avatar { position: relative; width: 280px; height: 280px; display: flex; justify-content: center; align-items: center; }
-.hologram-ring {
-    position: absolute; width: 100%; height: 100%;
-    border-radius: 50%; border: 2px dashed rgba(255,255,255,0.2);
-    border-top: 2px solid var(--cyan);
-    animation: spin 15s linear infinite;
-}
-.avatar-container {
-    width: 240px; height: 240px; border-radius: 50%;
-    overflow: hidden; border: 4px solid var(--glass-border);
-    box-shadow: 0 0 40px rgba(0,0,0,0.8); background: #fff;
-}
-.avatar-container img { width: 100%; height: 100%; object-fit: cover; }
-@keyframes spin { 100% { transform: rotate(360deg); } }
+/* --- 5. THE STEAMING AVATAR BORDER --- */
+.hero-visual { display: flex; justify-content: center; align-items: center; }
 
-/* --- 5. DASHBOARD JOB BOARD --- */
-.dashboard-section { padding: 40px 0; }
+.hero-avatar {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Generating the Steam / Energy Trail */
+.hero-avatar::before,
+.hero-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -6px; /* Extends outside the image to form the border */
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(251, 191, 36, 0.4) 60%,
+        var(--gold) 80%,
+        #EA580C 100% /* Fiery orange tail */
+    );
+    animation: spin-steam 2.5s linear infinite;
+    z-index: -1;
+}
+
+/* The heavy blur creates the "steaming" glow effect */
+.hero-avatar::after {
+    filter: blur(15px);
+    opacity: 0.8;
+}
+
+.avatar-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--bg-deep); /* Blends core with background */
+    background: #000;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes spin-steam {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 6. AUTO-PULSING WIDGETS --- */
+.widgets-section { padding: 40px 0 20px; }
+.widget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.widget-box {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    padding: 30px; border-radius: 20px; text-decoration: none;
+    display: block; backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+.widget-box:hover { transform: translateY(-5px) !important; animation: none !important; border-color: #fff !important; }
+
+.pulse-red { animation: border-pulse-red 5s infinite; }
+.pulse-green { animation: border-pulse-green 5s infinite; }
+.pulse-gold { animation: border-pulse-gold 5s infinite; }
+
+@keyframes border-pulse-red { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--yt-red); box-shadow: 0 0 25px rgba(239, 68, 68, 0.2); } }
+@keyframes border-pulse-green { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--wa-green); box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); } }
+@keyframes border-pulse-gold { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--gold); box-shadow: 0 0 25px rgba(251, 191, 36, 0.2); } }
+
+.widget-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.badge { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
+.icon { font-size: 20px; }
+.red-icon { color: var(--yt-red); text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+.green-icon { color: var(--wa-green); text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+.gold-icon { color: var(--gold); text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+
+.widget-box h3 { font-family: var(--font-head); font-size: 20px; color: #fff; margin-bottom: 10px; }
+.widget-box p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+/* --- 7. DASHBOARD JOB BOARD --- */
+.dashboard-section { padding: 40px 0 80px; }
 .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding: 0 10px;}
 .dashboard-header h2 { font-family: var(--font-head); font-size: 24px; display: flex; align-items: center; gap: 12px; }
 
-/* Live Ping Dot */
 .live-ping {
     width: 10px; height: 10px; background: var(--wa-green);
     border-radius: 50%; box-shadow: 0 0 10px var(--wa-green);
@@ -180,44 +234,13 @@ body {
 .tag-team { background: rgba(34, 211, 238, 0.1); color: #22D3EE; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; }
 .tag-loc { background: rgba(255,255,255,0.05); color: var(--text-muted); padding: 4px 10px; border-radius: 4px; font-size: 12px; }
 
-/* --- 6. AUTO-PULSING WIDGETS --- */
-.widgets-section { padding: 40px 0 100px; }
-.widget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-
-.widget-box {
-    background: var(--glass-bg); border: 1px solid var(--glass-border);
-    padding: 30px; border-radius: 20px; text-decoration: none;
-    display: block; backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
-}
-.widget-box:hover { transform: translateY(-5px) !important; animation: none !important; border-color: #fff !important; }
-
-/* The Requested 5-Second Highlight Animations */
-.pulse-red { animation: border-pulse-red 5s infinite; }
-.pulse-green { animation: border-pulse-green 5s infinite; }
-.pulse-gold { animation: border-pulse-gold 5s infinite; }
-
-@keyframes border-pulse-red { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--yt-red); box-shadow: 0 0 25px rgba(239, 68, 68, 0.2); } }
-@keyframes border-pulse-green { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--wa-green); box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); } }
-@keyframes border-pulse-gold { 0%, 100% { border-color: var(--glass-border); box-shadow: none; } 50% { border-color: var(--gold); box-shadow: 0 0 25px rgba(251, 191, 36, 0.2); } }
-
-.widget-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.badge { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
-.icon { font-size: 20px; }
-.red-icon { color: var(--yt-red); text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
-.green-icon { color: var(--wa-green); text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
-.gold-icon { color: var(--gold); text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
-
-.widget-box h3 { font-family: var(--font-head); font-size: 20px; color: #fff; margin-bottom: 10px; }
-.widget-box p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-
 /* --- FOOTER --- */
 footer { text-align: center; padding: 40px; border-top: 1px solid var(--glass-border); color: #555; font-size: 13px; }
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 900px) {
     .hero-glass-panel { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; gap: 40px; }
-    .hero-avatar { order: -1; margin: 0 auto; }
+    .hero-visual { order: -1; margin: 0 auto; }
     .hero-text h1 { font-size: 42px; }
     .button-grid { justify-content: center; }
     .cyber-btn { width: 100%; max-width: 300px; }
