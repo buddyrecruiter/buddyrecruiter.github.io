@@ -4,94 +4,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Buddy Recruiter | Amazon SDE-II Master Guide</title>
+<title>Buddy Recruiter | SDE-II Master Guide</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
 
 .guide-container{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-padding:60px 24px;
+padding:40px 24px;
 }
 
 .guide-header{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:40px;
 }
 
 .guide-header h1{
+font-size:60px;
 font-family:var(--font-head);
-font-size:58px;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .guide-header p{
-max-width:850px;
-margin:auto;
 color:var(--text-muted);
-font-size:18px;
+max-width:900px;
+margin:auto;
 }
 
-.chapter{
+.password-box{
+max-width:500px;
+margin:60px auto;
 background:var(--panel-bg);
+padding:40px;
+border-radius:20px;
 border:1px solid var(--border-color);
-border-radius:16px;
-margin-bottom:20px;
-overflow:hidden;
 backdrop-filter:blur(10px);
 }
 
-.chapter-btn{
+.password-box input{
 width:100%;
-background:none;
-border:none;
+height:55px;
+background:rgba(255,255,255,.05);
+border:1px solid var(--border-color);
+border-radius:12px;
+padding:0 15px;
 color:white;
-font-size:20px;
-font-family:var(--font-head);
-padding:24px;
-cursor:pointer;
-text-align:left;
+margin-bottom:15px;
 }
 
-.chapter-content{
-display:none;
-padding:0 24px 24px;
-}
-
-.chapter-content h3{
-margin-top:20px;
-margin-bottom:10px;
-color:var(--gold);
-}
-
-.chapter-content ul{
-padding-left:20px;
-}
-
-.chapter-content li{
-margin-bottom:10px;
-color:#E2E8F0;
-}
-
-.badge-premium{
-display:inline-block;
-background:rgba(251,191,36,.1);
-color:var(--gold);
-padding:8px 16px;
-border-radius:50px;
-font-size:12px;
+.password-box button{
+width:100%;
+height:55px;
+border:none;
+border-radius:12px;
 font-weight:700;
-letter-spacing:1px;
-margin-bottom:20px;
+cursor:pointer;
+background:linear-gradient(135deg,#F59E0B,#EA580C);
 }
 
-.home-link{
-color:var(--gold);
+.portal{
+display:none;
+}
+
+.portal-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.portal-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+padding:30px;
+border-radius:18px;
 text-decoration:none;
-display:inline-block;
-margin-bottom:40px;
+color:white;
+transition:.3s;
+}
+
+.portal-card:hover{
+transform:translateY(-5px);
+border-color:var(--gold);
+}
+
+.portal-card h3{
+margin-bottom:10px;
+}
+
+.portal-card p{
+color:var(--text-muted);
+}
+
+@media(max-width:900px){
+
+.portal-grid{
+grid-template-columns:1fr;
+}
+
+.guide-header h1{
+font-size:42px;
+}
+
 }
 
 </style>
@@ -103,257 +118,106 @@ margin-bottom:40px;
 
 <div class="guide-container">
 
-<a href="index.html" class="home-link">
-← Back Home
-</a>
-
 <div class="guide-header">
-
-<div class="badge-premium">
-CONFIDENTIAL CANDIDATE PORTAL
-</div>
 
 <h1>Amazon SDE-II Master Guide</h1>
 
 <p>
-Structured preparation framework covering Coding,
-Low-Level Design, System Design,
-Leadership Principles,
-Hiring Manager and Bar Raiser expectations.
+Confidential preparation framework covering coding,
+LLD, System Design, Leadership Principles,
+Hiring Manager and Bar Raiser preparation.
 </p>
 
 </div>
 
-<div class="chapter">
-<button class="chapter-btn">
-01. SDE-II Expectations
+<div class="password-box" id="login">
+
+<input
+type="password"
+id="pwd"
+placeholder="Enter Access Password">
+
+<button onclick="unlockPortal()">
+Access Portal
 </button>
 
-<div class="chapter-content">
-
-<h3>Independent Ownership</h3>
-<p>Own systems end-to-end from design through production deployment.</p>
-
-<h3>Technical Depth</h3>
-<p>Explain why your solution is optimal and discuss trade-offs.</p>
-
-<h3>Scalability Mindset</h3>
-<p>Design for millions of users and highly available systems.</p>
-
-<h3>Influence</h3>
-<p>Raise engineering standards through reviews and mentorship.</p>
-
-<h3>Leadership Instinct</h3>
-<p>Identify problems proactively and drive solutions independently.</p>
-
-</div>
 </div>
 
-<div class="chapter">
-<button class="chapter-btn">
-02. Interview Architecture
-</button>
+<div class="portal" id="portal">
 
-<div class="chapter-content">
+<div class="portal-grid">
 
-<ul>
-<li>Round 1 → Coding + Behavioral</li>
-<li>Round 2 → Coding + LLD</li>
-<li>Hiring Manager → System Design + Leadership Principles</li>
-<li>Bar Raiser → Problem Solving + Deep Behavioral</li>
-</ul>
+<a href="sections/overview.html" class="portal-card">
+<h3>SDE-II Expectations</h3>
+<p>Evaluation pillars and interview architecture.</p>
+</a>
 
-</div>
-</div>
+<a href="sections/coding.html" class="portal-card">
+<h3>Coding Mastery</h3>
+<p>DSA, Algorithms, Frameworks and LP prep.</p>
+</a>
 
-<div class="chapter">
-<button class="chapter-btn">
-03. Coding Preparation
-</button>
+<a href="sections/lld.html" class="portal-card">
+<h3>Low Level Design</h3>
+<p>SOLID principles and design patterns.</p>
+</a>
 
-<div class="chapter-content">
+<a href="sections/system-design.html" class="portal-card">
+<h3>System Design</h3>
+<p>Distributed systems and scalability.</p>
+</a>
 
-<h3>Must Master</h3>
+<a href="sections/bar-raiser.html" class="portal-card">
+<h3>Bar Raiser</h3>
+<p>Problem solving and behavioral mastery.</p>
+</a>
 
-<ul>
-<li>Arrays</li>
-<li>Hash Maps</li>
-<li>Trees</li>
-<li>Graphs</li>
-<li>Heaps</li>
-<li>Dynamic Programming</li>
-<li>Greedy</li>
-<li>Binary Search</li>
-<li>Backtracking</li>
-</ul>
+<a href="sections/leadership.html" class="portal-card">
+<h3>Leadership Principles</h3>
+<p>STAR stories and LP preparation.</p>
+</a>
 
-<h3>Framework</h3>
-
-<ul>
-<li>Clarify</li>
-<li>Strategize</li>
-<li>Optimize</li>
-<li>Implement</li>
-<li>Validate</li>
-<li>Analyze Complexity</li>
-</ul>
+<a href="sections/resources.html" class="portal-card">
+<h3>Resources</h3>
+<p>Preparation checklist and references.</p>
+</a>
 
 </div>
-</div>
 
-<div class="chapter">
-<button class="chapter-btn">
-04. Low-Level Design
-</button>
-
-<div class="chapter-content">
-
-<ul>
-<li>SOLID Principles</li>
-<li>Factory Pattern</li>
-<li>Strategy Pattern</li>
-<li>Observer Pattern</li>
-<li>Builder Pattern</li>
-<li>State Pattern</li>
-<li>Command Pattern</li>
-</ul>
-
-<h3>Practice Problems</h3>
-
-<ul>
-<li>Parking Lot</li>
-<li>Movie Booking</li>
-<li>Elevator System</li>
-<li>Library Management</li>
-<li>Vending Machine</li>
-<li>Chess Game</li>
-</ul>
-
-</div>
-</div>
-
-<div class="chapter">
-<button class="chapter-btn">
-05. System Design
-</button>
-
-<div class="chapter-content">
-
-<ul>
-<li>Requirements Gathering</li>
-<li>Capacity Estimation</li>
-<li>API Design</li>
-<li>Data Modeling</li>
-<li>Architecture Design</li>
-<li>Scaling Discussion</li>
-<li>Trade-Off Analysis</li>
-</ul>
-
-<h3>Critical Topics</h3>
-
-<ul>
-<li>Load Balancing</li>
-<li>Caching</li>
-<li>Database Selection</li>
-<li>Kafka / Queues</li>
-<li>Sharding</li>
-<li>Replication</li>
-<li>Microservices</li>
-<li>Rate Limiting</li>
-</ul>
-
-</div>
-</div>
-
-<div class="chapter">
-<button class="chapter-btn">
-06. Leadership Principles
-</button>
-
-<div class="chapter-content">
-
-<ul>
-<li>Customer Obsession</li>
-<li>Ownership</li>
-<li>Invent & Simplify</li>
-<li>Learn & Be Curious</li>
-<li>Earn Trust</li>
-<li>Dive Deep</li>
-<li>Deliver Results</li>
-<li>Think Big</li>
-<li>Bias for Action</li>
-<li>Highest Standards</li>
-</ul>
-
-</div>
-</div>
-
-<div class="chapter">
-<button class="chapter-btn">
-07. Winning Behaviors
-</button>
-
-<div class="chapter-content">
-
-<ul>
-<li>Ask Clarifying Questions</li>
-<li>Articulate Trade-Offs</li>
-<li>Think Aloud</li>
-<li>Write Production Quality Code</li>
-<li>Handle Edge Cases</li>
-<li>Quantify Impact</li>
-<li>Accept Hints Gracefully</li>
-<li>Maintain Composure</li>
-</ul>
-
-</div>
-</div>
-
-<div class="chapter">
-<button class="chapter-btn">
-08. Common Disqualifiers
-</button>
-
-<div class="chapter-content">
-
-<ul>
-<li>Coding Without Understanding</li>
-<li>Pseudo Code Only</li>
-<li>No Metrics in Stories</li>
-<li>Ignoring Feedback</li>
-<li>Over Engineering</li>
-<li>No Clarifying Questions</li>
-<li>Defensive Behaviour</li>
-</ul>
-
-</div>
 </div>
 
 </div>
 
 <script>
 
-document.querySelectorAll(".chapter-btn")
-.forEach(btn=>{
+function unlockPortal(){
 
-btn.addEventListener("click",()=>{
+const password =
+document.getElementById("pwd").value;
 
-const content =
-btn.nextElementSibling;
+if(password==="9879007733"){
 
-if(content.style.display==="block"){
+document.getElementById("login").style.display="none";
 
-content.style.display="none";
+document.getElementById("portal").style.display="block";
+
+localStorage.setItem("buddyPortal","true");
 
 }else{
 
-content.style.display="block";
+alert("Invalid Password");
 
 }
 
-});
+}
 
-});
+if(localStorage.getItem("buddyPortal")==="true"){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("portal").style.display="block";
+
+}
 
 document.addEventListener('copy',e=>{
 e.preventDefault();
@@ -363,3 +227,2406 @@ e.preventDefault();
 
 </body>
 </html>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDE-II Expectations</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+text-align:left;
+padding:15px;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>SDE-II Level Expectations</h1>
+
+<p>
+Amazon evaluates SDE-II candidates as engineers capable of independently owning,
+architecting and delivering large-scale systems while demonstrating technical depth,
+leadership maturity and strong judgment.
+</p>
+
+<div class="table-card">
+
+<h2>Six Evaluation Pillars</h2>
+
+<table>
+
+<tr>
+<th>Pillar</th>
+<th>Expectation</th>
+</tr>
+
+<tr>
+<td>Independent Ownership</td>
+<td>Own systems end-to-end from design through production deployment and operational excellence.</td>
+</tr>
+
+<tr>
+<td>Technical Depth</td>
+<td>Demonstrate not only working solutions but explain WHY a solution is optimal over alternatives.</td>
+</tr>
+
+<tr>
+<td>Scalability Mindset</td>
+<td>Design for millions of concurrent users, petabytes of data and 99.99% availability.</td>
+</tr>
+
+<tr>
+<td>Influence Without Authority</td>
+<td>Elevate engineering standards through code reviews, mentorship and cross-team alignment.</td>
+</tr>
+
+<tr>
+<td>Data-Driven Decision Making</td>
+<td>Support decisions with quantifiable metrics and evidence.</td>
+</tr>
+
+<tr>
+<td>Leadership Instinct</td>
+<td>Identify problems proactively, propose solutions independently and execute without waiting for direction.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Interview Architecture</h2>
+
+<table>
+
+<tr>
+<th>Round</th>
+<th>Technical Component</th>
+<th>Behavioral Component</th>
+<th>Leadership Principles</th>
+</tr>
+
+<tr>
+<td>Tech Round 1</td>
+<td>Coding (DSA)</td>
+<td>Leadership Discussion</td>
+<td>Learn & Be Curious, Deliver Results</td>
+</tr>
+
+<tr>
+<td>Tech Round 2</td>
+<td>Coding + LLD</td>
+<td>Leadership Discussion</td>
+<td>Customer Obsession, Ownership</td>
+</tr>
+
+<tr>
+<td>Hiring Manager</td>
+<td>System Design</td>
+<td>Leadership Discussion</td>
+<td>Highest Standards, Earn Trust</td>
+</tr>
+
+<tr>
+<td>Bar Raiser</td>
+<td>Problem Solving</td>
+<td>Deep Behavioral</td>
+<td>Dive Deep, Invent & Simplify</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Critical Time Allocation</h2>
+
+<table>
+
+<tr>
+<th>Component</th>
+<th>Allocation</th>
+<th>Guidance</th>
+</tr>
+
+<tr>
+<td>Technical Portion</td>
+<td>30 Minutes</td>
+<td>Solve, implement, optimize and validate.</td>
+</tr>
+
+<tr>
+<td>Behavioral Portion</td>
+<td>30 Minutes</td>
+<td>2-3 Leadership Principle stories with follow-up questions.</td>
+</tr>
+
+<tr>
+<td>System Design</td>
+<td>20-25 Minutes</td>
+<td>Practice within strict interview timelines.</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coding Mastery</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+ul li{
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Coding (Data Structures & Algorithms)</h1>
+
+<p>
+Demonstrate the ability to solve complex algorithmic problems with optimal,
+production-quality code under time constraints.
+</p>
+
+<div class="table-card">
+
+<h2>Data Structures — Mastery Required</h2>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Structures</th>
+<th>Associated Patterns</th>
+</tr>
+
+<tr>
+<td>Linear</td>
+<td>Arrays, LinkedList, Stack, Queue, Deque</td>
+<td>Two-Pointer, Sliding Window, Monotonic Stack</td>
+</tr>
+
+<tr>
+<td>Hashing</td>
+<td>HashMap, HashSet, TreeMap, TreeSet</td>
+<td>Frequency Counting, Grouping, Deduplication</td>
+</tr>
+
+<tr>
+<td>Trees</td>
+<td>BST, AVL, Trie, Segment Tree, N-ary Tree</td>
+<td>DFS, BFS, Level Order Traversal, LCA</td>
+</tr>
+
+<tr>
+<td>Graphs</td>
+<td>Adjacency List, Adjacency Matrix, DAG</td>
+<td>Dijkstra, Topological Sort, Union Find, Kruskal</td>
+</tr>
+
+<tr>
+<td>Heaps</td>
+<td>Min Heap, Max Heap, Priority Queue</td>
+<td>Top-K Problems, Merge K Sorted, Median Stream</td>
+</tr>
+
+<tr>
+<td>Advanced</td>
+<td>Disjoint Sets, Fenwick Tree, Interval Tree</td>
+<td>Range Queries, Connected Components</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Algorithms — Mastery Required</h2>
+
+<table>
+
+<tr>
+<th>Strategy</th>
+<th>Application Criteria</th>
+<th>Representative Problems</th>
+</tr>
+
+<tr>
+<td>Dynamic Programming</td>
+<td>Overlapping subproblems with optimal substructure</td>
+<td>LIS, Coin Change, Edit Distance</td>
+</tr>
+
+<tr>
+<td>Divide and Conquer</td>
+<td>Independent sub-problems</td>
+<td>Merge Sort, Quick Select, Closest Pair</td>
+</tr>
+
+<tr>
+<td>Greedy</td>
+<td>Local optimum leads to global optimum</td>
+<td>Activity Selection, Huffman Coding, Jump Game</td>
+</tr>
+
+<tr>
+<td>Backtracking</td>
+<td>Constraint satisfaction and exhaustive search</td>
+<td>N Queens, Sudoku Solver, Word Search</td>
+</tr>
+
+<tr>
+<td>Binary Search</td>
+<td>Monotonic search space</td>
+<td>Rotated Array, Koko Eating Bananas</td>
+</tr>
+
+<tr>
+<td>Graph Traversal</td>
+<td>Shortest path, connectivity, cycles</td>
+<td>BFS, DFS, Dijkstra, Bellman Ford</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Problem Solving Framework</h2>
+
+<table>
+
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Guidance</th>
+</tr>
+
+<tr>
+<td>1. Clarify</td>
+<td>Ask targeted questions</td>
+<td>Input constraints, output format, edge cases</td>
+</tr>
+
+<tr>
+<td>2. Strategize</td>
+<td>Explain approach first</td>
+<td>State brute force then optimization</td>
+</tr>
+
+<tr>
+<td>3. Optimize</td>
+<td>Discuss trade-offs</td>
+<td>Explain why one solution is better</td>
+</tr>
+
+<tr>
+<td>4. Implement</td>
+<td>Write production code</td>
+<td>Meaningful naming, modular design</td>
+</tr>
+
+<tr>
+<td>5. Validate</td>
+<td>Dry run</td>
+<td>Null, empty, overflow and edge cases</td>
+</tr>
+
+<tr>
+<td>6. Analyze</td>
+<td>Complexity discussion</td>
+<td>Big-O with justification</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Round 1 Strategic Guidance</h2>
+
+<ul>
+<li>Target completion within 20–25 minutes.</li>
+<li>State brute force approach first.</li>
+<li>Optimize step-by-step.</li>
+<li>Handle edge cases proactively.</li>
+<li>Use descriptive variable names.</li>
+<li>If stuck for more than 3 minutes, verbalize your blocker.</li>
+<li>Think aloud continuously.</li>
+<li>Validate before declaring completion.</li>
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>Leadership Principle Focus</h2>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Learn and Be Curious
+</h3>
+
+<p>
+Prepare a story demonstrating a time you proactively learned a new
+technology or skill that solved a technical or business challenge.
+Cover motivation, learning process and measurable impact.
+</p>
+
+<br>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Deliver Results
+</h3>
+
+<p>
+Prepare a story about delivering a critical project despite
+significant obstacles such as changing requirements,
+aggressive timelines or resource constraints.
+Quantify business impact.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Low Level Design</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+ul li{
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Low Level Design (LLD)</h1>
+
+<p>
+Demonstrate the ability to write production-quality, maintainable code
+while designing extensible object-oriented systems using SOLID principles
+and appropriate design patterns.
+</p>
+
+<div class="table-card">
+
+<h2>Code Quality Evaluation Criteria</h2>
+
+<table>
+
+<tr>
+<th>Dimension</th>
+<th>Expectation</th>
+<th>Disqualifying Behavior</th>
+</tr>
+
+<tr>
+<td>Readability</td>
+<td>Clear naming, formatting and self-documenting code</td>
+<td>Single-letter variables, poor formatting</td>
+</tr>
+
+<tr>
+<td>Modularity</td>
+<td>Helper methods, separation of concerns</td>
+<td>Monolithic 40-50+ line functions</td>
+</tr>
+
+<tr>
+<td>Error Handling</td>
+<td>Null checks, validation, exception handling</td>
+<td>Assuming happy-path execution only</td>
+</tr>
+
+<tr>
+<td>Extensibility</td>
+<td>Easy feature additions without modification</td>
+<td>Tight coupling and hard-coded values</td>
+</tr>
+
+<tr>
+<td>Testing Mindset</td>
+<td>Discuss testability and edge cases</td>
+<td>"It should work" without validation</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>LLD Evaluation Criteria</h2>
+
+<table>
+
+<tr>
+<th>Dimension</th>
+<th>Expectation</th>
+<th>Demonstration</th>
+</tr>
+
+<tr>
+<td>Object-Oriented Principles</td>
+<td>Encapsulation, Inheritance, Polymorphism, Abstraction</td>
+<td>Proper class hierarchy and access control</td>
+</tr>
+
+<tr>
+<td>SOLID Principles</td>
+<td>Apply all five principles where appropriate</td>
+<td>Explain WHY each principle applies</td>
+</tr>
+
+<tr>
+<td>Design Patterns</td>
+<td>Choose the right pattern</td>
+<td>Explain pattern selection rationale</td>
+</tr>
+
+<tr>
+<td>Interface Design</td>
+<td>Minimal and clean contracts</td>
+<td>Define interfaces before implementations</td>
+</tr>
+
+<tr>
+<td>Extensibility</td>
+<td>New features without modifying existing code</td>
+<td>Open-Closed Principle in practice</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>SOLID Principles Reference</h2>
+
+<table>
+
+<tr>
+<th>Principle</th>
+<th>Definition</th>
+<th>Interview Application</th>
+</tr>
+
+<tr>
+<td>Single Responsibility</td>
+<td>One reason to change</td>
+<td>Separate concerns into dedicated classes</td>
+</tr>
+
+<tr>
+<td>Open Closed</td>
+<td>Open for extension, closed for modification</td>
+<td>Use interfaces and strategy pattern</td>
+</tr>
+
+<tr>
+<td>Liskov Substitution</td>
+<td>Derived classes replace base classes safely</td>
+<td>Honor inheritance contracts</td>
+</tr>
+
+<tr>
+<td>Interface Segregation</td>
+<td>Small focused interfaces</td>
+<td>Avoid large all-purpose interfaces</td>
+</tr>
+
+<tr>
+<td>Dependency Inversion</td>
+<td>Depend on abstractions</td>
+<td>Constructor injection and interfaces</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Design Patterns — Required Knowledge</h2>
+
+<table>
+
+<tr>
+<th>Pattern</th>
+<th>Application Criteria</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>Factory</td>
+<td>Complex object creation</td>
+<td>Payment processors</td>
+</tr>
+
+<tr>
+<td>Strategy</td>
+<td>Behavior changes at runtime</td>
+<td>Pricing rules, notification channels</td>
+</tr>
+
+<tr>
+<td>Observer</td>
+<td>Event notifications</td>
+<td>Notification systems</td>
+</tr>
+
+<tr>
+<td>Singleton</td>
+<td>Single global instance</td>
+<td>Configuration Manager</td>
+</tr>
+
+<tr>
+<td>Builder</td>
+<td>Complex object construction</td>
+<td>Query Builder</td>
+</tr>
+
+<tr>
+<td>Decorator</td>
+<td>Add behavior dynamically</td>
+<td>Logging layers</td>
+</tr>
+
+<tr>
+<td>State</td>
+<td>Behavior based on internal state</td>
+<td>Vending Machine</td>
+</tr>
+
+<tr>
+<td>Command</td>
+<td>Operations as objects</td>
+<td>Undo / Redo</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>LLD Practice Problems</h2>
+
+<table>
+
+<tr>
+<th>Problem</th>
+<th>Recommended Patterns</th>
+</tr>
+
+<tr>
+<td>Parking Lot</td>
+<td>Strategy, Factory, Observer</td>
+</tr>
+
+<tr>
+<td>Movie Booking</td>
+<td>Strategy, Builder, Observer</td>
+</tr>
+
+<tr>
+<td>Elevator System</td>
+<td>State, Strategy, Observer</td>
+</tr>
+
+<tr>
+<td>Library Management</td>
+<td>Factory, Strategy, Observer</td>
+</tr>
+
+<tr>
+<td>Vending Machine</td>
+<td>State, Strategy, Factory</td>
+</tr>
+
+<tr>
+<td>Chess Game</td>
+<td>Factory, Strategy, Command</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Round 2 Strategic Guidance</h2>
+
+<ul>
+<li>Write logical, modular and maintainable code.</li>
+<li>Think aloud while designing.</li>
+<li>Explain design decisions clearly.</li>
+<li>Refactor proactively for clarity.</li>
+<li>Present interfaces before implementations.</li>
+<li>Demonstrate extensibility.</li>
+<li>Validate inputs defensively.</li>
+<li>Show how patterns solve business requirements.</li>
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>Leadership Principle Focus</h2>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Customer Obsession
+</h3>
+
+<p>
+Prepare a story showing deep understanding of customer pain points
+and how your solution measurably improved customer experience.
+Include data wherever possible.
+</p>
+
+<br>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Ownership
+</h3>
+
+<p>
+Prepare a story about taking responsibility beyond your formal scope,
+identifying a critical gap, driving resolution and delivering
+a measurable business outcome.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System Design</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+ul li{
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Hiring Manager Round — System Design</h1>
+
+<p>
+Demonstrate the ability to architect scalable,
+fault-tolerant distributed systems serving millions
+of users with operational excellence.
+</p>
+
+<div class="table-card">
+
+<h2>7-Step System Design Framework</h2>
+
+<table>
+
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Time</th>
+<th>Deliverable</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Requirements Gathering</td>
+<td>3 min</td>
+<td>Functional + Non-functional Requirements</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Capacity Estimation</td>
+<td>2 min</td>
+<td>QPS, Storage, Bandwidth Estimates</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>API Design</td>
+<td>4 min</td>
+<td>REST / gRPC Contracts</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Data Modeling</td>
+<td>4 min</td>
+<td>Entities, Schema, Keys</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Architecture Diagram</td>
+<td>8 min</td>
+<td>Core Components & Data Flow</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Deep Dive</td>
+<td>6 min</td>
+<td>Caching, Scaling, Bottlenecks</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Trade-off Discussion</td>
+<td>3 min</td>
+<td>Decision Justification</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Distributed Systems Concepts</h2>
+
+<table>
+
+<tr>
+<th>Concept</th>
+<th>Key Principles</th>
+<th>Application</th>
+</tr>
+
+<tr>
+<td>Load Balancing</td>
+<td>Round Robin, Least Connections, Consistent Hashing</td>
+<td>Traffic Distribution</td>
+</tr>
+
+<tr>
+<td>Caching</td>
+<td>Write Through, Write Back, Cache Aside</td>
+<td>Reduce Database Load</td>
+</tr>
+
+<tr>
+<td>Database Selection</td>
+<td>SQL vs NoSQL</td>
+<td>Storage Strategy</td>
+</tr>
+
+<tr>
+<td>Message Queues</td>
+<td>Kafka, SQS, RabbitMQ</td>
+<td>Async Processing</td>
+</tr>
+
+<tr>
+<td>Data Partitioning</td>
+<td>Sharding, Partition Keys</td>
+<td>Scale Beyond Single Node</td>
+</tr>
+
+<tr>
+<td>Replication</td>
+<td>Leader-Follower, Multi-Leader</td>
+<td>HA and Read Scaling</td>
+</tr>
+
+<tr>
+<td>CDN</td>
+<td>Edge Caching</td>
+<td>Global Distribution</td>
+</tr>
+
+<tr>
+<td>Rate Limiting</td>
+<td>Token Bucket, Sliding Window</td>
+<td>API Protection</td>
+</tr>
+
+<tr>
+<td>CAP Theorem</td>
+<td>Consistency vs Availability</td>
+<td>Architectural Trade-offs</td>
+</tr>
+
+<tr>
+<td>Microservices</td>
+<td>Service Boundaries, Discovery</td>
+<td>Independent Scaling</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Scalability & Operational Excellence</h2>
+
+<table>
+
+<tr>
+<th>Topic</th>
+<th>Expected Discussion</th>
+</tr>
+
+<tr>
+<td>Horizontal Scaling</td>
+<td>Stateless Services, Auto Scaling</td>
+</tr>
+
+<tr>
+<td>Fault Tolerance</td>
+<td>Failover, Circuit Breakers, Graceful Degradation</td>
+</tr>
+
+<tr>
+<td>Monitoring</td>
+<td>P50, P90, P99 Metrics, Dashboards</td>
+</tr>
+
+<tr>
+<td>Deployment</td>
+<td>Blue-Green, Canary Releases</td>
+</tr>
+
+<tr>
+<td>Performance</td>
+<td>Connection Pools, Query Optimization</td>
+</tr>
+
+<tr>
+<td>Operational Excellence</td>
+<td>Runbooks, Postmortems, SLA/SLO</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Practice Problems</h2>
+
+<table>
+
+<tr>
+<th>Problem</th>
+<th>Critical Components</th>
+</tr>
+
+<tr>
+<td>URL Shortener</td>
+<td>Hashing, Analytics, Read Optimization</td>
+</tr>
+
+<tr>
+<td>Notification Service</td>
+<td>Multi-channel Delivery, Retry Logic</td>
+</tr>
+
+<tr>
+<td>Ride Sharing</td>
+<td>Geo Indexing, Matching, ETA</td>
+</tr>
+
+<tr>
+<td>News Feed</td>
+<td>Fan-out, Ranking, Cache</td>
+</tr>
+
+<tr>
+<td>Distributed Cache</td>
+<td>Consistent Hashing, Eviction, Replication</td>
+</tr>
+
+<tr>
+<td>E-Commerce Search</td>
+<td>Inverted Index, Ranking, Typeahead</td>
+</tr>
+
+<tr>
+<td>Real-Time Chat</td>
+<td>WebSockets, Delivery Guarantees</td>
+</tr>
+
+<tr>
+<td>Rate Limiter</td>
+<td>Distributed Counting, Sliding Window</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Hiring Manager Round Strategy</h2>
+
+<ul>
+
+<li>Always begin with customer and scale assumptions.</li>
+
+<li>Write requirements before drawing architecture.</li>
+
+<li>Practice within 20–25 minute constraints.</li>
+
+<li>Discuss trade-offs proactively.</li>
+
+<li>Justify every technology decision.</li>
+
+<li>Address monitoring and operational readiness.</li>
+
+<li>Cover failure recovery and disaster scenarios.</li>
+
+<li>Ask interviewer where to deep dive after HLD.</li>
+
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>Leadership Principle Focus</h2>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Insist on the Highest Standards
+</h3>
+
+<p>
+Prepare a story where you refused to accept
+"good enough", raised engineering quality,
+improved reliability or performance and
+delivered measurable improvements.
+</p>
+
+<br>
+
+<h3 style="color:var(--gold);margin-bottom:15px;">
+Earn Trust
+</h3>
+
+<p>
+Prepare a story demonstrating stakeholder trust,
+difficult team situations, transparency,
+active listening and long-term credibility.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bar Raiser Round</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+ul li{
+margin-bottom:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Bar Raiser Round</h1>
+
+<p>
+The Bar Raiser round evaluates whether you raise the overall hiring bar.
+This is the most rigorous interview focused on problem solving,
+judgment, leadership maturity and cultural alignment.
+</p>
+
+<div class="table-card">
+
+<h2>Problem Solving Evaluation Areas</h2>
+
+<table>
+
+<tr>
+<th>Dimension</th>
+<th>Expectation</th>
+</tr>
+
+<tr>
+<td>Approach to Ambiguity</td>
+<td>Gather requirements before proposing solutions.</td>
+</tr>
+
+<tr>
+<td>Thought Process</td>
+<td>Think aloud and explain assumptions.</td>
+</tr>
+
+<tr>
+<td>Optimal Solution Design</td>
+<td>Iteratively improve toward optimal complexity.</td>
+</tr>
+
+<tr>
+<td>Hint Reception</td>
+<td>Accept and apply guidance quickly.</td>
+</tr>
+
+<tr>
+<td>Edge Case Awareness</td>
+<td>Test boundaries and failure scenarios.</td>
+</tr>
+
+<tr>
+<td>Communication Clarity</td>
+<td>Make the interview collaborative and interactive.</td>
+</tr>
+
+<tr>
+<td>Innovation</td>
+<td>Look for elegant and simplified solutions.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Problem Solving Excellence Framework</h2>
+
+<table>
+
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Actions</th>
+</tr>
+
+<tr>
+<td>Understanding</td>
+<td>3–5 Minutes</td>
+<td>Listen fully, clarify requirements, restate problem.</td>
+</tr>
+
+<tr>
+<td>Planning</td>
+<td>3–5 Minutes</td>
+<td>Discuss alternatives and choose the optimal path.</td>
+</tr>
+
+<tr>
+<td>Implementation</td>
+<td>15–18 Minutes</td>
+<td>Write clean production-quality code.</td>
+</tr>
+
+<tr>
+<td>Verification</td>
+<td>3–5 Minutes</td>
+<td>Dry run, complexity analysis and improvements.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Problem Solving Principles</h2>
+
+<ul>
+
+<li>Understand the problem completely before coding.</li>
+
+<li>Seek 100% clarity before proposing solutions.</li>
+
+<li>Think aloud throughout the interview.</li>
+
+<li>Start with an outline before implementation.</li>
+
+<li>Ask clarifying questions proactively.</li>
+
+<li>Accept hints positively and incorporate them.</li>
+
+<li>Construct edge-case inputs.</li>
+
+<li>Validate with examples before completion.</li>
+
+<li>Look for elegant and simplified solutions.</li>
+
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>STAR+ Behavioral Framework</h2>
+
+<table>
+
+<tr>
+<th>Element</th>
+<th>Duration</th>
+<th>Purpose</th>
+<th>Guidance</th>
+</tr>
+
+<tr>
+<td>Situation</td>
+<td>1–2 Minutes</td>
+<td>Context</td>
+<td>Business impact, scale, stakeholders.</td>
+</tr>
+
+<tr>
+<td>Task</td>
+<td>30 Seconds</td>
+<td>Your Responsibility</td>
+<td>Define ownership clearly.</td>
+</tr>
+
+<tr>
+<td>Action</td>
+<td>5–6 Minutes</td>
+<td>Execution</td>
+<td>Technical decisions, obstacles and influence.</td>
+</tr>
+
+<tr>
+<td>Result</td>
+<td>1–2 Minutes</td>
+<td>Impact</td>
+<td>Metrics, business value, scale achieved.</td>
+</tr>
+
+<tr>
+<td>Reflection</td>
+<td>30 Seconds</td>
+<td>Growth</td>
+<td>Lessons learned and future improvements.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Dive Deep</h2>
+
+<p>
+Prepare a story where you personally investigated
+a difficult problem, analyzed data, identified
+root cause and implemented a permanent solution.
+</p>
+
+<ul>
+
+<li>What was the issue?</li>
+
+<li>What data did you analyze?</li>
+
+<li>How deep did you investigate?</li>
+
+<li>What was the root cause?</li>
+
+<li>What measurable outcome was achieved?</li>
+
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>Invent and Simplify</h2>
+
+<p>
+Prepare a story demonstrating innovation or
+significant simplification of an existing process,
+system or architecture.
+</p>
+
+<ul>
+
+<li>What existed before?</li>
+
+<li>What problem did you identify?</li>
+
+<li>What solution did you propose?</li>
+
+<li>How was it implemented?</li>
+
+<li>What measurable improvements resulted?</li>
+
+</ul>
+
+</div>
+
+<div class="table-card">
+
+<h2>Bar Raiser Success Checklist</h2>
+
+<ul>
+
+<li>Clarify before solving.</li>
+
+<li>Think aloud continuously.</li>
+
+<li>Demonstrate coachability.</li>
+
+<li>Show strong ownership.</li>
+
+<li>Use metrics in every behavioral story.</li>
+
+<li>Separate team contribution from your contribution.</li>
+
+<li>Handle pressure calmly.</li>
+
+<li>Show learning and reflection.</li>
+
+<li>Simplify wherever possible.</li>
+
+<li>Display sound engineering judgment.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leadership Principles</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Leadership Principles Mastery</h1>
+
+<p>
+Prepare 8–10 STAR stories that map to multiple Leadership Principles.
+Each story should include ownership, technical depth, measurable results,
+and reflection.
+</p>
+
+<div class="table-card">
+
+<h2>Leadership Principles Preparation Matrix</h2>
+
+<table>
+
+<tr>
+<th>Leadership Principle</th>
+<th>Core Definition</th>
+<th>Preparation Question</th>
+</tr>
+
+<tr>
+<td>Customer Obsession</td>
+<td>Start with the customer and work backwards.</td>
+<td>When did you go beyond expectations for a customer?</td>
+</tr>
+
+<tr>
+<td>Ownership</td>
+<td>Act on behalf of the entire company.</td>
+<td>When did you take responsibility outside your role?</td>
+</tr>
+
+<tr>
+<td>Invent and Simplify</td>
+<td>Seek innovation and simplicity.</td>
+<td>When did you simplify a complex problem?</td>
+</tr>
+
+<tr>
+<td>Are Right, A Lot</td>
+<td>Exercise strong judgment.</td>
+<td>When did you make a correct decision with limited information?</td>
+</tr>
+
+<tr>
+<td>Learn and Be Curious</td>
+<td>Never stop learning.</td>
+<td>What skill changed your effectiveness?</td>
+</tr>
+
+<tr>
+<td>Hire and Develop the Best</td>
+<td>Raise the performance bar.</td>
+<td>How have you mentored others?</td>
+</tr>
+
+<tr>
+<td>Insist on Highest Standards</td>
+<td>Relentlessly improve quality.</td>
+<td>When did you refuse to compromise quality?</td>
+</tr>
+
+<tr>
+<td>Think Big</td>
+<td>Create bold visions.</td>
+<td>What was your biggest technical proposal?</td>
+</tr>
+
+<tr>
+<td>Bias for Action</td>
+<td>Value speed and calculated risks.</td>
+<td>When did fast action produce results?</td>
+</tr>
+
+<tr>
+<td>Frugality</td>
+<td>Accomplish more with less.</td>
+<td>How did you succeed with limited resources?</td>
+</tr>
+
+<tr>
+<td>Earn Trust</td>
+<td>Listen, learn and be transparent.</td>
+<td>When did you earn stakeholder trust?</td>
+</tr>
+
+<tr>
+<td>Dive Deep</td>
+<td>Understand root causes.</td>
+<td>What hidden issue did you uncover?</td>
+</tr>
+
+<tr>
+<td>Have Backbone; Disagree and Commit</td>
+<td>Challenge respectfully and commit fully.</td>
+<td>When did you disagree with leadership?</td>
+</tr>
+
+<tr>
+<td>Deliver Results</td>
+<td>Focus on outcomes.</td>
+<td>What high-impact project did you deliver?</td>
+</tr>
+
+<tr>
+<td>Strive to be Earth's Best Employer</td>
+<td>Create better work environments.</td>
+<td>How did you improve team culture?</td>
+</tr>
+
+<tr>
+<td>Success and Scale Bring Broad Responsibility</td>
+<td>Consider broader consequences.</td>
+<td>When did you consider long-term impacts?</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Behavioral Story Rules</h2>
+
+<table>
+
+<tr>
+<th>Standard</th>
+<th>Expectation</th>
+</tr>
+
+<tr>
+<td>Pronoun Usage</td>
+<td>Use "I" and clearly explain personal contribution.</td>
+</tr>
+
+<tr>
+<td>Quantification</td>
+<td>Include metrics and measurable outcomes.</td>
+</tr>
+
+<tr>
+<td>Technical Specificity</td>
+<td>Mention technologies and methodologies.</td>
+</tr>
+
+<tr>
+<td>Scope Demonstration</td>
+<td>Show business impact, scale and complexity.</td>
+</tr>
+
+<tr>
+<td>Growth Demonstration</td>
+<td>Include lessons learned and reflection.</td>
+</tr>
+
+<tr>
+<td>Time Discipline</td>
+<td>Stories should fit within 8–10 minutes.</td>
+</tr>
+
+<tr>
+<td>Story Redundancy</td>
+<td>Prepare backup stories.</td>
+</tr>
+
+<tr>
+<td>Failure Stories</td>
+<td>Include setbacks, recovery and growth.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Winning Behaviors</h2>
+
+<table>
+
+<tr>
+<th>Behavior</th>
+<th>Underlying Signal</th>
+</tr>
+
+<tr>
+<td>Clarifying questions</td>
+<td>Customer Obsession</td>
+</tr>
+
+<tr>
+<td>Trade-off discussions</td>
+<td>Technical judgment</td>
+</tr>
+
+<tr>
+<td>Production-quality code</td>
+<td>Engineering excellence</td>
+</tr>
+
+<tr>
+<td>Edge case handling</td>
+<td>Operational awareness</td>
+</tr>
+
+<tr>
+<td>Accepting hints</td>
+<td>Coachability</td>
+</tr>
+
+<tr>
+<td>Quantifying results</td>
+<td>Data-driven mindset</td>
+</tr>
+
+<tr>
+<td>Using "I" statements</td>
+<td>Ownership</td>
+</tr>
+
+<tr>
+<td>Lessons learned</td>
+<td>Growth mindset</td>
+</tr>
+
+<tr>
+<td>Simplification</td>
+<td>Invent and Simplify</td>
+</tr>
+
+<tr>
+<td>Composure under pressure</td>
+<td>Leadership maturity</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Disqualifying Behaviors</h2>
+
+<table>
+
+<tr>
+<th>Behavior</th>
+<th>Consequence</th>
+</tr>
+
+<tr>
+<td>Coding without understanding</td>
+<td>Cannot handle ambiguity</td>
+</tr>
+
+<tr>
+<td>Pseudo-code only</td>
+<td>Fails coding expectations</td>
+</tr>
+
+<tr>
+<td>No personal ownership</td>
+<td>Cannot assess capability</td>
+</tr>
+
+<tr>
+<td>No metrics</td>
+<td>Weak impact demonstration</td>
+</tr>
+
+<tr>
+<td>Ignoring interviewer guidance</td>
+<td>Poor coachability</td>
+</tr>
+
+<tr>
+<td>Over-engineering</td>
+<td>Poor judgment</td>
+</tr>
+
+<tr>
+<td>No requirements gathering</td>
+<td>Fails customer obsession</td>
+</tr>
+
+<tr>
+<td>Defensive behavior</td>
+<td>Fails earn trust</td>
+</tr>
+
+<tr>
+<td>No questions for interviewer</td>
+<td>Lack of interest</td>
+</tr>
+
+<tr>
+<td>Withdrawal from process</td>
+<td>24-month cooldown</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resources & Interview Setup</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:50px 24px;
+}
+
+.back-btn{
+display:inline-block;
+margin-bottom:25px;
+color:var(--gold);
+text-decoration:none;
+}
+
+.page h1{
+font-family:var(--font-head);
+font-size:48px;
+margin-bottom:15px;
+}
+
+.page p{
+color:var(--text-muted);
+margin-bottom:30px;
+}
+
+.table-card{
+background:var(--panel-bg);
+border:1px solid var(--border-color);
+border-radius:18px;
+padding:25px;
+margin-bottom:30px;
+overflow:auto;
+backdrop-filter:blur(10px);
+}
+
+.table-card h2{
+margin-bottom:20px;
+font-family:var(--font-head);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:rgba(251,191,36,.08);
+color:var(--gold);
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-top:1px solid var(--border-color);
+vertical-align:top;
+}
+
+.notice{
+border:1px solid rgba(239,68,68,.35);
+background:rgba(239,68,68,.05);
+padding:25px;
+border-radius:16px;
+margin-top:20px;
+}
+
+.success{
+border:1px solid rgba(16,185,129,.35);
+background:rgba(16,185,129,.05);
+padding:25px;
+border-radius:16px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space-bg"></div>
+
+<div class="page">
+
+<a href="../confidential.html" class="back-btn">
+← Back to Portal
+</a>
+
+<h1>Resources & Interview Readiness</h1>
+
+<p>
+Final preparation checklist, interview environment setup,
+recommended learning resources and closing guidance.
+</p>
+
+<div class="table-card">
+
+<h2>Required Applications</h2>
+
+<table>
+
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Action Required</th>
+</tr>
+
+<tr>
+<td>Zoom</td>
+<td>Video Conferencing</td>
+<td>Install, update and test before interview</td>
+</tr>
+
+<tr>
+<td>Bluescape</td>
+<td>Digital Whiteboard</td>
+<td>Access using coordinator-provided link</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Interview Environment Standards</h2>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Priority</th>
+</tr>
+
+<tr>
+<td>Background</td>
+<td>Professional and distraction-free</td>
+<td>Critical</td>
+</tr>
+
+<tr>
+<td>Lighting</td>
+<td>Face clearly visible</td>
+<td>Critical</td>
+</tr>
+
+<tr>
+<td>Camera Position</td>
+<td>Eye-level placement</td>
+<td>High</td>
+</tr>
+
+<tr>
+<td>Audio</td>
+<td>Prefer wired headset</td>
+<td>Critical</td>
+</tr>
+
+<tr>
+<td>Internet</td>
+<td>Stable connection (10+ Mbps)</td>
+<td>Critical</td>
+</tr>
+
+<tr>
+<td>Software</td>
+<td>Close unnecessary apps and notifications</td>
+<td>High</td>
+</tr>
+
+<tr>
+<td>Punctuality</td>
+<td>Join 5 minutes early</td>
+<td>High</td>
+</tr>
+
+<tr>
+<td>Materials</td>
+<td>Water, notepad and pen nearby</td>
+<td>Standard</td>
+</tr>
+
+<tr>
+<td>Contingency</td>
+<td>Keep phone available</td>
+<td>Standard</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Coding Preparation Resources</h2>
+
+<table>
+
+<tr>
+<th>Resource</th>
+<th>Coverage</th>
+</tr>
+
+<tr>
+<td>LeetCode Top 150 (Amazon)</td>
+<td>Pattern recognition and interview practice</td>
+</tr>
+
+<tr>
+<td>Cracking the Coding Interview</td>
+<td>Foundational problem-solving techniques</td>
+</tr>
+
+<tr>
+<td>NeetCode Roadmap</td>
+<td>Structured DSA progression</td>
+</tr>
+
+<tr>
+<td>GeeksForGeeks Amazon Archive</td>
+<td>Amazon-specific patterns and questions</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>System Design Resources</h2>
+
+<table>
+
+<tr>
+<th>Resource</th>
+<th>Coverage</th>
+</tr>
+
+<tr>
+<td>Designing Data-Intensive Applications</td>
+<td>Distributed systems fundamentals</td>
+</tr>
+
+<tr>
+<td>System Design Primer</td>
+<td>Comprehensive framework reference</td>
+</tr>
+
+<tr>
+<td>System Design Interview (Alex Xu)</td>
+<td>Structured interview preparation</td>
+</tr>
+
+<tr>
+<td>Grokking System Design</td>
+<td>Common design patterns and solutions</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="table-card">
+
+<h2>Leadership Principles Resources</h2>
+
+<table>
+
+<tr>
+<th>Resource</th>
+<th>Coverage</th>
+</tr>
+
+<tr>
+<td>Amazon Leadership Principles</td>
+<td>Official LP definitions and expectations</td>
+</tr>
+
+<tr>
+<td>STAR Worksheet Practice</td>
+<td>Behavioral story preparation</td>
+</tr>
+
+<tr>
+<td>Resume Deconstruction</td>
+<td>Experience mapping to LPs</td>
+</tr>
+
+<tr>
+<td>Voice Recording Practice</td>
+<td>Story delivery and timing refinement</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="notice">
+
+<h2 style="margin-bottom:15px;color:#EF4444;">
+Confidentiality Notice
+</h2>
+
+<p>
+This preparation guide is provided exclusively for
+personal interview preparation. The contents should
+not be shared, forwarded, reproduced or distributed.
+</p>
+
+</div>
+
+<div class="success">
+
+<h2 style="margin-bottom:15px;color:#10B981;">
+Closing & Support
+</h2>
+
+<p>
+Success in Amazon interviews is not about memorizing
+answers. It is about demonstrating technical depth,
+ownership, structured thinking, leadership maturity,
+and measurable impact.
+
+Prepare your stories thoroughly, practice under
+timed conditions, and focus on communicating your
+thought process clearly.
+
+Good luck with your preparation journey.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
