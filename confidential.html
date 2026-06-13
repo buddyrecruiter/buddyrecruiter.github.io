@@ -754,10 +754,1460 @@ Interview Best Practices
 
 </section> 
 
+<section id="lld" class="section">
 
-  </div>
+<h2>Low Level Design (LLD)</h2>
+
+<p>
+The LLD round evaluates object-oriented thinking,
+clean code practices, extensibility, maintainability,
+and the ability to design production-quality systems.
+</p>
+
+<table>
+
+<tr>
+<th>Area</th>
+<th>Expectation</th>
+<th>Evaluation Criteria</th>
+</tr>
+
+<tr>
+<td>Object Modeling</td>
+<td>Correct identification of entities</td>
+<td>Proper class design</td>
+</tr>
+
+<tr>
+<td>Relationships</td>
+<td>Inheritance vs Composition</td>
+<td>Flexibility and maintainability</td>
+</tr>
+
+<tr>
+<td>Abstraction</td>
+<td>Hide implementation details</td>
+<td>Clean interfaces</td>
+</tr>
+
+<tr>
+<td>Encapsulation</td>
+<td>Protect state</td>
+<td>Controlled access</td>
+</tr>
+
+<tr>
+<td>Extensibility</td>
+<td>Future-proof design</td>
+<td>Easy feature addition</td>
+</tr>
+
+<tr>
+<td>Code Quality</td>
+<td>Readable and maintainable</td>
+<td>Production-grade standards</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>SOLID Principles</h2>
+
+<table>
+
+<tr>
+<th>Principle</th>
+<th>Meaning</th>
+<th>Interview Example</th>
+</tr>
+
+<tr>
+<td>Single Responsibility</td>
+<td>One reason to change</td>
+<td>UserService separated from NotificationService</td>
+</tr>
+
+<tr>
+<td>Open Closed</td>
+<td>Open for extension</td>
+<td>New payment methods without modifying code</td>
+</tr>
+
+<tr>
+<td>Liskov Substitution</td>
+<td>Derived types replace base types</td>
+<td>Inheritance contract respected</td>
+</tr>
+
+<tr>
+<td>Interface Segregation</td>
+<td>Small focused interfaces</td>
+<td>Separate Reader and Writer interfaces</td>
+</tr>
+
+<tr>
+<td>Dependency Inversion</td>
+<td>Depend on abstractions</td>
+<td>Inject interfaces instead of concrete classes</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Design Patterns</h2>
+
+<table>
+
+<tr>
+<th>Pattern</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>Factory</td>
+<td>Object Creation</td>
+<td>Payment Processor</td>
+</tr>
+
+<tr>
+<td>Strategy</td>
+<td>Behavior Selection</td>
+<td>Discount Calculation</td>
+</tr>
+
+<tr>
+<td>Observer</td>
+<td>Event Notification</td>
+<td>Email Alerts</td>
+</tr>
+
+<tr>
+<td>Builder</td>
+<td>Complex Construction</td>
+<td>Order Builder</td>
+</tr>
+
+<tr>
+<td>Singleton</td>
+<td>Single Instance</td>
+<td>Configuration Manager</td>
+</tr>
+
+<tr>
+<td>Decorator</td>
+<td>Add Features Dynamically</td>
+<td>Logging Wrapper</td>
+</tr>
+
+<tr>
+<td>State</td>
+<td>State-based Behavior</td>
+<td>Vending Machine</td>
+</tr>
+
+<tr>
+<td>Command</td>
+<td>Encapsulate Actions</td>
+<td>Undo/Redo</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Object-Oriented Design Framework</h2>
+
+<table>
+
+<tr>
+<th>Step</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Clarify Requirements</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Identify Core Entities</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Define Relationships</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Create Interfaces</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Apply Design Patterns</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Validate Extensibility</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Discuss Trade-offs</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Popular LLD Practice Problems</h2>
+
+<table>
+
+<tr>
+<th>Problem</th>
+<th>Focus Areas</th>
+</tr>
+
+<tr>
+<td>Parking Lot</td>
+<td>Inheritance, Strategy Pattern</td>
+</tr>
+
+<tr>
+<td>Elevator System</td>
+<td>State Pattern</td>
+</tr>
+
+<tr>
+<td>Movie Booking System</td>
+<td>Concurrency, Design Patterns</td>
+</tr>
+
+<tr>
+<td>Library Management</td>
+<td>Entity Modeling</td>
+</tr>
+
+<tr>
+<td>Chess Game</td>
+<td>Object Relationships</td>
+</tr>
+
+<tr>
+<td>Vending Machine</td>
+<td>State Management</td>
+</tr>
+
+<tr>
+<td>Splitwise</td>
+<td>Data Modeling</td>
+</tr>
+
+<tr>
+<td>Hotel Booking</td>
+<td>Availability & Pricing</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Customer Obsession</h2>
+
+<p>
+Prepare stories demonstrating how customer needs
+influenced design decisions and drove business impact.
+Focus on situations where customer experience was
+significantly improved through your actions.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Ownership</h2>
+
+<p>
+Prepare examples where you proactively identified
+problems, took responsibility outside your defined role,
+and drove outcomes without waiting for direction.
+Ownership stories are heavily evaluated in senior
+engineering interviews.
+</p>
+
+</section>
+<section id="system" class="section">
+
+<h2>System Design Excellence</h2>
+
+<p>
+The Hiring Manager round evaluates your ability
+to architect scalable, highly available distributed
+systems that serve millions of users while maintaining
+operational excellence.
+</p>
+
+<table>
+
+<tr>
+<th>Phase</th>
+<th>Objective</th>
+<th>Expected Output</th>
+</tr>
+
+<tr>
+<td>Requirements</td>
+<td>Clarify scope</td>
+<td>Functional + Non-functional requirements</td>
+</tr>
+
+<tr>
+<td>Capacity Planning</td>
+<td>Estimate scale</td>
+<td>QPS, Storage, Bandwidth</td>
+</tr>
+
+<tr>
+<td>API Design</td>
+<td>Define contracts</td>
+<td>Endpoints and schemas</td>
+</tr>
+
+<tr>
+<td>Data Modeling</td>
+<td>Storage strategy</td>
+<td>Entities and relationships</td>
+</tr>
+
+<tr>
+<td>Architecture</td>
+<td>High-Level Design</td>
+<td>Component Diagram</td>
+</tr>
+
+<tr>
+<td>Deep Dive</td>
+<td>Scale discussion</td>
+<td>Caching, Partitioning, Replication</td>
+</tr>
+
+<tr>
+<td>Trade-offs</td>
+<td>Decision rationale</td>
+<td>Why this design?</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>System Design Interview Framework</h2>
+
+<table>
+
+<tr>
+<th>Step</th>
+<th>Duration</th>
+<th>Goal</th>
+</tr>
+
+<tr>
+<td>Requirements Gathering</td>
+<td>3 Minutes</td>
+<td>Understand business problem</td>
+</tr>
+
+<tr>
+<td>Scale Estimation</td>
+<td>2 Minutes</td>
+<td>Traffic and storage assumptions</td>
+</tr>
+
+<tr>
+<td>API Design</td>
+<td>4 Minutes</td>
+<td>Define contracts</td>
+</tr>
+
+<tr>
+<td>Data Model</td>
+<td>4 Minutes</td>
+<td>Schema and storage design</td>
+</tr>
+
+<tr>
+<td>High Level Design</td>
+<td>8 Minutes</td>
+<td>Architecture overview</td>
+</tr>
+
+<tr>
+<td>Deep Dive</td>
+<td>6 Minutes</td>
+<td>Bottlenecks and scale</td>
+</tr>
+
+<tr>
+<td>Trade-offs</td>
+<td>3 Minutes</td>
+<td>Explain decisions</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Distributed Systems Concepts</h2>
+
+<table>
+
+<tr>
+<th>Concept</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+
+<tr>
+<td>Load Balancer</td>
+<td>Traffic Distribution</td>
+<td>Multiple application servers</td>
+</tr>
+
+<tr>
+<td>Caching</td>
+<td>Reduce latency</td>
+<td>Read-heavy workloads</td>
+</tr>
+
+<tr>
+<td>CDN</td>
+<td>Global content delivery</td>
+<td>Static assets</td>
+</tr>
+
+<tr>
+<td>Message Queue</td>
+<td>Asynchronous processing</td>
+<td>Background jobs</td>
+</tr>
+
+<tr>
+<td>Replication</td>
+<td>High availability</td>
+<td>Database resilience</td>
+</tr>
+
+<tr>
+<td>Partitioning</td>
+<td>Horizontal scaling</td>
+<td>Large datasets</td>
+</tr>
+
+<tr>
+<td>Service Discovery</td>
+<td>Microservice communication</td>
+<td>Dynamic environments</td>
+</tr>
+
+<tr>
+<td>API Gateway</td>
+<td>Unified access layer</td>
+<td>Microservices architecture</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Caching Strategies</h2>
+
+<table>
+
+<tr>
+<th>Strategy</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+
+<tr>
+<td>Cache Aside</td>
+<td>Application manages cache</td>
+<td>Most common pattern</td>
+</tr>
+
+<tr>
+<td>Write Through</td>
+<td>Write cache and DB together</td>
+<td>Consistency focused</td>
+</tr>
+
+<tr>
+<td>Write Back</td>
+<td>Write cache first</td>
+<td>High throughput systems</td>
+</tr>
+
+<tr>
+<td>Read Through</td>
+<td>Cache fetches automatically</td>
+<td>Transparent caching</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Database Selection Framework</h2>
+
+<table>
+
+<tr>
+<th>Technology</th>
+<th>Strength</th>
+<th>Examples</th>
+</tr>
+
+<tr>
+<td>Relational</td>
+<td>ACID Transactions</td>
+<td>PostgreSQL, MySQL</td>
+</tr>
+
+<tr>
+<td>Key-Value</td>
+<td>Ultra-fast lookups</td>
+<td>DynamoDB, Redis</td>
+</tr>
+
+<tr>
+<td>Document</td>
+<td>Flexible schema</td>
+<td>MongoDB</td>
+</tr>
+
+<tr>
+<td>Column Store</td>
+<td>Analytics workloads</td>
+<td>Cassandra</td>
+</tr>
+
+<tr>
+<td>Search Engine</td>
+<td>Full-text search</td>
+<td>ElasticSearch</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>CAP Theorem</h2>
+
+<table>
+
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>Consistency</td>
+<td>All nodes see same data</td>
+</tr>
+
+<tr>
+<td>Availability</td>
+<td>System always responds</td>
+</tr>
+
+<tr>
+<td>Partition Tolerance</td>
+<td>Works despite network failures</td>
+</tr>
+
+</table>
+
+<p style="margin-top:20px;">
+Distributed systems must tolerate partitions,
+therefore architects typically choose between
+strong consistency and maximum availability
+depending on business requirements.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>System Design Practice Problems</h2>
+
+<table>
+
+<tr>
+<th>Problem</th>
+<th>Core Topics</th>
+</tr>
+
+<tr>
+<td>URL Shortener</td>
+<td>Hashing, Scaling, Analytics</td>
+</tr>
+
+<tr>
+<td>News Feed</td>
+<td>Ranking, Caching, Fan-out</td>
+</tr>
+
+<tr>
+<td>Chat System</td>
+<td>WebSockets, Delivery Guarantees</td>
+</tr>
+
+<tr>
+<td>Ride Sharing</td>
+<td>Geo-location, Matching</td>
+</tr>
+
+<tr>
+<td>Notification Platform</td>
+<td>Queues, Retry Logic</td>
+</tr>
+
+<tr>
+<td>Rate Limiter</td>
+<td>Token Bucket, Sliding Window</td>
+</tr>
+
+<tr>
+<td>Distributed Cache</td>
+<td>Replication, Consistent Hashing</td>
+</tr>
+
+<tr>
+<td>E-Commerce Search</td>
+<td>Indexing, Ranking, Typeahead</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Hiring Manager Success Signals</h2>
+
+<ul style="padding-left:20px;line-height:2;">
+
+<li>Start with customer and scale assumptions.</li>
+
+<li>Gather requirements before drawing architecture.</li>
+
+<li>Discuss trade-offs proactively.</li>
+
+<li>Justify every technology choice.</li>
+
+<li>Address monitoring and observability.</li>
+
+<li>Discuss deployment and rollback strategies.</li>
+
+<li>Explain fault tolerance and disaster recovery.</li>
+
+<li>Think in terms of millions of users.</li>
+
+<li>Communicate clearly and confidently.</li>
+
+<li>Balance scalability with simplicity.</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>Leadership Principles Focus</h2>
+
+<table>
+
+<tr>
+<th>Principle</th>
+<th>Story Theme</th>
+</tr>
+
+<tr>
+<td>Insist on the Highest Standards</td>
+<td>Raising quality and engineering excellence</td>
+</tr>
+
+<tr>
+<td>Earn Trust</td>
+<td>Stakeholder alignment and credibility</td>
+</tr>
+
+<tr>
+<td>Think Big</td>
+<td>Large-scale vision and innovation</td>
+</tr>
+
+<tr>
+<td>Are Right, A Lot</td>
+<td>Judgment under uncertainty</td>
+</tr>
+
+</table>
+
+</section>
+<section id="barraiser" class="section">
+
+<h2>Bar Raiser Round</h2>
+
+<p>
+The Bar Raiser is an independent interviewer whose
+primary responsibility is maintaining hiring quality.
+This round evaluates judgment, problem solving,
+leadership maturity, ownership and long-term potential.
+</p>
+
+<table>
+
+<tr>
+<th>Area</th>
+<th>What is Evaluated</th>
+</tr>
+
+<tr>
+<td>Problem Solving</td>
+<td>Structured thinking under ambiguity</td>
+</tr>
+
+<tr>
+<td>Technical Judgment</td>
+<td>Decision quality and trade-offs</td>
+</tr>
+
+<tr>
+<td>Leadership</td>
+<td>Influence without authority</td>
+</tr>
+
+<tr>
+<td>Ownership</td>
+<td>Accountability beyond role boundaries</td>
+</tr>
+
+<tr>
+<td>Communication</td>
+<td>Clarity and executive presence</td>
+</tr>
+
+<tr>
+<td>Learning Agility</td>
+<td>Adaptability and growth mindset</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Problem Solving Excellence Framework</h2>
+
+<table>
+
+<tr>
+<th>Stage</th>
+<th>Objective</th>
+</tr>
+
+<tr>
+<td>Clarify</td>
+<td>Understand the real problem</td>
+</tr>
+
+<tr>
+<td>Break Down</td>
+<td>Decompose complexity</td>
+</tr>
+
+<tr>
+<td>Generate Options</td>
+<td>Explore alternatives</td>
+</tr>
+
+<tr>
+<td>Evaluate Trade-offs</td>
+<td>Compare approaches</td>
+</tr>
+
+<tr>
+<td>Execute</td>
+<td>Deliver solution</td>
+</tr>
+
+<tr>
+<td>Reflect</td>
+<td>Identify lessons learned</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>STAR Framework</h2>
+
+<table>
+
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Situation</td>
+<td>Business context and challenge</td>
+</tr>
+
+<tr>
+<td>Task</td>
+<td>Your responsibility</td>
+</tr>
+
+<tr>
+<td>Action</td>
+<td>What you personally did</td>
+</tr>
+
+<tr>
+<td>Result</td>
+<td>Measured outcome</td>
+</tr>
+
+</table>
+
+<p style="margin-top:20px;">
+Strong answers spend most of the time on the
+Action section and include metrics in the Result section.
+</p>
+
+</section>
+
+<section id="leadership" class="section">
+
+<h2>Leadership Principles Matrix</h2>
+
+<table>
+
+<tr>
+<th>Principle</th>
+<th>What Interviewers Look For</th>
+</tr>
+
+<tr>
+<td>Customer Obsession</td>
+<td>Customer-first decision making</td>
+</tr>
+
+<tr>
+<td>Ownership</td>
+<td>Acting beyond defined scope</td>
+</tr>
+
+<tr>
+<td>Invent and Simplify</td>
+<td>Creating simpler solutions</td>
+</tr>
+
+<tr>
+<td>Are Right, A Lot</td>
+<td>Strong judgment and reasoning</td>
+</tr>
+
+<tr>
+<td>Learn and Be Curious</td>
+<td>Continuous improvement</td>
+</tr>
+
+<tr>
+<td>Hire and Develop the Best</td>
+<td>Raising talent standards</td>
+</tr>
+
+<tr>
+<td>Insist on the Highest Standards</td>
+<td>Quality obsession</td>
+</tr>
+
+<tr>
+<td>Think Big</td>
+<td>Long-term strategic thinking</td>
+</tr>
+
+<tr>
+<td>Bias for Action</td>
+<td>Speed and calculated risk-taking</td>
+</tr>
+
+<tr>
+<td>Frugality</td>
+<td>Accomplishing more with less</td>
+</tr>
+
+<tr>
+<td>Earn Trust</td>
+<td>Credibility and transparency</td>
+</tr>
+
+<tr>
+<td>Dive Deep</td>
+<td>Root cause analysis</td>
+</tr>
+
+<tr>
+<td>Have Backbone; Disagree and Commit</td>
+<td>Constructive challenge</td>
+</tr>
+
+<tr>
+<td>Deliver Results</td>
+<td>Consistent execution</td>
+</tr>
+
+<tr>
+<td>Strive to be Earth's Best Employer</td>
+<td>Team wellbeing and growth</td>
+</tr>
+
+<tr>
+<td>Success and Scale Bring Broad Responsibility</td>
+<td>Long-term societal impact</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Winning Behavioral Signals</h2>
+
+<table>
+
+<tr>
+<th>Behavior</th>
+<th>Signal Sent</th>
+</tr>
+
+<tr>
+<td>Using metrics</td>
+<td>Data-driven mindset</td>
+</tr>
+
+<tr>
+<td>Using "I" statements</td>
+<td>Ownership</td>
+</tr>
+
+<tr>
+<td>Clear trade-offs</td>
+<td>Strong judgment</td>
+</tr>
+
+<tr>
+<td>Customer focus</td>
+<td>Business thinking</td>
+</tr>
+
+<tr>
+<td>Lessons learned</td>
+<td>Growth mindset</td>
+</tr>
+
+<tr>
+<td>Handling failure honestly</td>
+<td>Maturity</td>
+</tr>
+
+<tr>
+<td>Cross-functional influence</td>
+<td>Leadership capability</td>
+</tr>
+
+<tr>
+<td>Simplification examples</td>
+<td>Invent and Simplify</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Behavioral Mistakes That Hurt Performance</h2>
+
+<table>
+
+<tr>
+<th>Mistake</th>
+<th>Impact</th>
+</tr>
+
+<tr>
+<td>No metrics</td>
+<td>Weak impact demonstration</td>
+</tr>
+
+<tr>
+<td>Using only "we"</td>
+<td>Ownership unclear</td>
+</tr>
+
+<tr>
+<td>Blaming others</td>
+<td>Poor leadership maturity</td>
+</tr>
+
+<tr>
+<td>Overly long situations</td>
+<td>Poor communication</td>
+</tr>
+
+<tr>
+<td>No lessons learned</td>
+<td>Limited growth mindset</td>
+</tr>
+
+<tr>
+<td>Avoiding difficult conversations</td>
+<td>Weak backbone</td>
+</tr>
+
+<tr>
+<td>Defensiveness</td>
+<td>Poor coachability</td>
+</tr>
+
+<tr>
+<td>Lack of customer focus</td>
+<td>Weak business alignment</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Behavioral Story Preparation Checklist</h2>
+
+<ul style="padding-left:20px;line-height:2;">
+
+<li>Prepare 8–10 strong STAR stories.</li>
+
+<li>Each story should map to multiple leadership principles.</li>
+
+<li>Include measurable business outcomes.</li>
+
+<li>Highlight personal contribution.</li>
+
+<li>Demonstrate technical depth.</li>
+
+<li>Show learning and reflection.</li>
+
+<li>Practice concise delivery.</li>
+
+<li>Prepare follow-up details.</li>
+
+<li>Know trade-offs and decisions made.</li>
+
+<li>Be authentic and specific.</li>
+
+</ul>
+
+</section>
+<section id="resources" class="section">
+
+<h2>Interview Environment Readiness</h2>
+
+<p>
+Technical preparation alone is not enough.
+Interview environment and execution discipline
+can significantly impact performance.
+</p>
+
+<table>
+
+<tr>
+<th>Area</th>
+<th>Recommendation</th>
+</tr>
+
+<tr>
+<td>Internet</td>
+<td>Stable high-speed connection with backup hotspot</td>
+</tr>
+
+<tr>
+<td>Audio</td>
+<td>Use quality headset or microphone</td>
+</tr>
+
+<tr>
+<td>Camera</td>
+<td>Eye-level positioning and proper lighting</td>
+</tr>
+
+<tr>
+<td>Environment</td>
+<td>Quiet room with minimal distractions</td>
+</tr>
+
+<tr>
+<td>Power</td>
+<td>Fully charged laptop and charger connected</td>
+</tr>
+
+<tr>
+<td>Notifications</td>
+<td>Disable all interruptions</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Virtual Interview Checklist</h2>
+
+<table>
+
+<tr>
+<th>Before Interview</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Verify meeting links</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>Test audio and video</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>Close unnecessary applications</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>Review interview schedule</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>Keep water nearby</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>Join 5–10 minutes early</td>
+<td>✓</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>30-Day Preparation Roadmap</h2>
+
+<table>
+
+<tr>
+<th>Week</th>
+<th>Focus Area</th>
+</tr>
+
+<tr>
+<td>Week 1</td>
+<td>Arrays, Strings, Hash Maps, Leadership Stories</td>
+</tr>
+
+<tr>
+<td>Week 2</td>
+<td>Trees, Graphs, Dynamic Programming</td>
+</tr>
+
+<tr>
+<td>Week 3</td>
+<td>Low Level Design and Design Patterns</td>
+</tr>
+
+<tr>
+<td>Week 4</td>
+<td>System Design, Mock Interviews and Review</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Recommended Resources</h2>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Resource</th>
+</tr>
+
+<tr>
+<td>DSA</td>
+<td>LeetCode, NeetCode, GeeksForGeeks</td>
+</tr>
+
+<tr>
+<td>Low Level Design</td>
+<td>Design Pattern References and OOP Practice</td>
+</tr>
+
+<tr>
+<td>System Design</td>
+<td>System Design Primer, DDIA, Alex Xu</td>
+</tr>
+
+<tr>
+<td>Behavioral</td>
+<td>STAR Story Workbook</td>
+</tr>
+
+<tr>
+<td>Mock Interviews</td>
+<td>Peer Practice and Recorded Sessions</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Final Success Formula</h2>
+
+<table>
+
+<tr>
+<th>Area</th>
+<th>Weight</th>
+</tr>
+
+<tr>
+<td>Coding Excellence</td>
+<td>30%</td>
+</tr>
+
+<tr>
+<td>System Design</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Leadership Principles</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Communication</td>
+<td>10%</td>
+</tr>
+
+<tr>
+<td>Execution Discipline</td>
+<td>10%</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="section">
+
+<h2>Confidentiality Notice</h2>
+
+<p>
+This material is intended solely for personal interview
+preparation and professional development.
+
+Unauthorized distribution, reproduction, resale,
+or sharing of this content is prohibited.
+
+Access is granted exclusively to approved users
+of Buddy Recruiter preparation services.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Closing Guidance</h2>
+
+<p>
+
+Success in engineering interviews comes from a
+combination of technical excellence, structured thinking,
+effective communication, leadership maturity and
+consistent preparation.
+
+Focus on understanding concepts deeply rather than
+memorizing answers.
+
+Practice under realistic conditions.
+
+Communicate your thought process clearly.
+
+Demonstrate ownership, customer focus and
+strong engineering judgment.
+
+The goal is not simply to answer questions,
+but to show how you think, lead and deliver.
+
+</p>
+
+</section>
+
+<footer style="
+margin-top:40px;
+padding:40px;
+text-align:center;
+color:#94A3B8;
+border-top:1px solid rgba(255,255,255,.08);
+">
+
+© 2026 Buddy Recruiter • Engineering Interview Excellence Portal
+
+</footer>
+
 </div>
 </div>
-<script>...</script>
+</div>
+
+<script>
+
+function unlockPortal(){
+
+const password =
+document.getElementById("pwd").value;
+
+if(password==="9879007733"){
+
+document.getElementById("loginScreen").style.display="none";
+
+document.getElementById("portal").style.display="block";
+
+localStorage.setItem(
+"buddyRecruiterPortal",
+"true"
+);
+
+}else{
+
+alert("Invalid Access Code");
+
+}
+
+}
+
+if(localStorage.getItem("buddyRecruiterPortal")==="true"){
+
+document.getElementById("loginScreen").style.display="none";
+
+document.getElementById("portal").style.display="block";
+
+}
+
+document.addEventListener(
+'copy',
+function(e){
+e.preventDefault();
+}
+);
+
+document.addEventListener(
+'contextmenu',
+function(e){
+e.preventDefault();
+}
+);
+
+const searchBox =
+document.querySelector(".search");
+
+if(searchBox){
+
+searchBox.addEventListener("keyup",function(){
+
+const value =
+this.value.toLowerCase();
+
+const sections =
+document.querySelectorAll(".section");
+
+sections.forEach(section=>{
+
+const text =
+section.innerText.toLowerCase();
+
+if(text.includes(value)){
+
+section.style.display="block";
+
+}else{
+
+section.style.display="none";
+
+}
+
+});
+
+});
+
+}
+
+</script>
+
 </body>
 </html>
